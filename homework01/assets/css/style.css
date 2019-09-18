@@ -6,11 +6,17 @@ body {
      color: #777777;
  }
 
+ p {
+     line-height: 1.5;
+ }
+
  .heading {
      float: left;
      margin-bottom: 20px;
      background-color: #ffffff;
      width: 100%;
+     border-color: #777777;
+     border-bottom: 2px outset;
  }
 
  h1 {
@@ -22,18 +28,30 @@ body {
 
 h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
     color: #4aaaa5;
-    width: 25%;
+    width: 95%;
+    padding: 5px;
+    border-color: #777777;
+    border-bottom: 2px outset;
+    border-bottom-width: 100%;
+    margin: 10px;
 }
 
 .content {
     clear: both;
     width: 960px;
     padding: 20px;
-    border: 1px solid black;
-    margin: 20px;
-    text-align: center;
+    border: 1px solid;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 150px;
     background-color: #ffffff;
+}
+
+.boxes {
+    width: 960px;
+    text-align: center;
 }
 
 #box1 {
