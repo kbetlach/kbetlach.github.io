@@ -7,6 +7,10 @@ body {
 
  p {
      line-height: 1.5;
+     padding: 5px;
+     color: #777777;
+     margin-right: 40px;
+     text-align: auto;
  }
 
  .heading {
@@ -14,13 +18,30 @@ body {
      margin-bottom: 20px;
      background-color: #ffffff;
      width: 100%;
-     border-color: #777777;
-     border-bottom: 2px outset;
+     border-color: #cccccc;
+     border-bottom: 1px outset;
  }
+
+ #name {
+    width: 200px;
+    margin-left: 200px;
+    background-color: #4aaaa5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.headerbutton {
+    width: 50px;
+    float: right;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-right: 50px;
+    align-items: center;
+}
 
  h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #cccccc;
     text-align: center;
 }
 
@@ -29,8 +50,8 @@ h2 {
     text-align: left;
     color: #4aaaa5;
     width: 95%;
-    padding: 5px;
-    border-color: #777777;
+    padding-bottom: 20px;
+    border-color: #ffffff;
     border-bottom: 2px outset;
     border-bottom-width: 100%;
     margin: 10px;
@@ -45,6 +66,8 @@ h2 {
     margin-right: 200px;
     margin-bottom: 150px;
     background-color: #ffffff;
+    border-color: #dddddd;
+    color: #777777;
 }
 
 .boxes {
@@ -52,43 +75,40 @@ h2 {
     text-align: center;
 }
 
-#box1 {
-    float: left;
-    padding: 20px;
-}
-
-#box2 {
-    float: left;
-    padding: 20px;
-}
-
-#box3 {
-    float: left;
-    padding: 20px;
-}
-
-#box4 {
-    float: left;
-    padding: 20px;
-}
-
-#box5 {
-    float: left;
-    padding: 20px;
+.box {
+    /* float: left; */
+    margin: 18px;
+    margin-left: 12px;
+    width: 290px;
+    height: 290px;
 }
 
 #fname {
-    width: 960px;
-    text-align: left;
+    width: 908px;
+    color: #777777;
+    margin: 10px;
 }
 
 #email {
-    width: 960px;
+    width: 908px;
+    color: #777777;
+    margin: 10px;
 }
 
 #message {
-    width: 960px;
+    width: 908px;
     height: 200px;
+    color: #777777;
+    margin: 10px;
+}
+
+#submit {
+    background-color:#4aaaa5;
+    color: white;
+    margin: 4px 10px;
+    cursor: pointer;
+    padding: 10px 25px;
+    font-size: 16px;
 }
 
 #kyle {
@@ -99,21 +119,10 @@ h2 {
 }
 
 .footer {
-    border-top: 8px solid;
-    background-color: #4aaaa5;
-    height: 100%;
-    color: #777777;
-}
-
-#name {
-    height: 100px;
-    width: 300px;
-    margin-left: 200px;
-    padding-top: 10px;
-    background-color: #4aaaa5;
-}
-
-.headerbutton {
-    width: 100px;
-    float: right;
+    bottom: 0px;
+    width: 100%;
+    border-top: 8px solid #4aaaa5;
+    background-color: #666666;
+    text-align: center;
+    height: 50px;
 }
