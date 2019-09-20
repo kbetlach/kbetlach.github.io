@@ -37,7 +37,7 @@ body {
     right: 125px;
     float: right;
     margin-top: 20px;
-    margin-right: 40px;
+    margin-right: 50px;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #4aaaa5;
@@ -147,6 +147,5 @@ h2 {
 
 .copyright {
     position: relative;
-    bottom: 0;
     color: #ffffff;
 }
