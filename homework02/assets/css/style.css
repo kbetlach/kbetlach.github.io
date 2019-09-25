@@ -11,6 +11,13 @@ body {
     margin-left: 30px;
 }
 
+.label {
+    position: absolute;
+    bottom: 25px;
+    left: 125px;
+    background-color: #4aaaa5;
+}
+
 .container {
     border: 1px solid #dddddd;
     width: 960px;
