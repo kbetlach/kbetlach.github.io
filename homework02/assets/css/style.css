@@ -5,6 +5,8 @@ body {
 #kyle {
     width: 215px;
     height: 215px;
+    float: left;
+    margin-right: 20px;
 }
 
 #navbarSupportedContent {
@@ -15,16 +17,25 @@ body {
     font-size: 18px;
 }
 
+.nav-header {
+    font-size: 150px;
+}
+
+.nav-brand {
+    font-size: 150px;
+}
+
 .label {
-    position: absolute;
-    bottom: 25px;
-    left: 50px;
+    position: relative;
+    bottom: 75px;
+    /* left: 50px; */
     background-color: #4aaaa5;
     font-family: Arial, Helvetica, sans-serif;
     color: #ffffff;
     text-align: center;
     padding: 10px;
     font-size: 16px;
+    width: 100%;
 }
 
 .container {
