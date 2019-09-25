@@ -7,16 +7,27 @@ body {
     height: 215px;
 }
 
-.nav-item {
-    margin-left: 30px;
+#navbarSupportedContent {
+    float: right;
+    padding-left: 800px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-right: 5px;
+    font-size: 18px;
 }
 
 .label {
     position: absolute;
     bottom: 25px;
-    left: 125px;
+    left: 50px;
     background-color: #4aaaa5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
 }
+
+
 
 .container {
     border: 1px solid #dddddd;
@@ -29,8 +40,19 @@ body {
 }
 
 h2 {
-    border-bottom: 1px solid #4aaaa5;
+    border-bottom: 2px solid #4aaaa5;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #4aaaa5;
     padding-bottom: 15px;
+}
+
+.form {
+    padding-top: 10px;
+}
+
+.card-footer {
+    text-align: center;
+    border-top: 8px solid #4aaaa5;
+    background-color: #666666;
+    color: #ffffff;
 }
