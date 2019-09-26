@@ -17,8 +17,20 @@ body {
     font-size: 18px;
 }
 
+#brand {
+    color: #ffffff;
+}
+
+#header-contact {
+    border-left: 1px solid #4aaaa5;
+}
+
+#header-portfolio {
+    border-left: 1px solid #4aaaa5;
+}
+
 .navbar-brand {
-    font-size: 26px;
+    font-size: 30px;
     margin-left: 225px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #4aaaa5;
@@ -68,3 +80,34 @@ h2 {
     background-color: #666666;
     color: #ffffff;
 }
+
+@media only screen and (max-width: 980px) {
+    .navbar-brand { 
+        margin-left: 50px;
+    }
+    
+    .container {
+        width: 650px;
+        margin-left: 50px;
+    }
+
+  .nav-link {
+        padding-left: 300px;
+  }
+
+    #kyle {
+        padding: 10px 0px 10px 0px;
+        height: 225px;
+    }
+
+   .img-thumbnail {
+        orientation: landscape;
+        max-width: 100%;
+    }
+
+    .label {
+        font-size: 12px;
+        bottom: 50px;
+    }
+}
+
