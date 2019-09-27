@@ -10,10 +10,8 @@ body {
 }
 
 #navbarSupportedContent {
-    float: right;
-    padding-left: 550px;
+    padding-left: 500px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border-right: 5px;
     font-size: 18px;
 }
 
@@ -81,28 +79,28 @@ h2 {
     color: #ffffff;
 }
 
-@media only screen and (max-width: 980px) {
+@media (max-width: 980px) {
+
+    body {
+        height: 300px;
+    }
+
     .navbar-brand { 
         margin-left: 50px;
     }
+
+    #navbarSupportedContent {
+        padding-left: 200px;
+    }
     
     .container {
-        width: 650px;
+        width: 700px;
         margin-left: 50px;
     }
-
-  .nav-link {
-        padding-left: 300px;
-  }
 
     #kyle {
         padding: 10px 0px 10px 0px;
         height: 225px;
-    }
-
-   .img-thumbnail {
-        orientation: landscape;
-        max-width: 100%;
     }
 
     .label {
