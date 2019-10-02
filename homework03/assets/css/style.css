@@ -1,0 +1,32 @@
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: darkslategray;
+    padding: 15px 0px 15px 0px;
+    color: #ffffff;
+    width: 100%;
+}
+
+body {
+    background: url("../images/leaves-pattern.png");
+}
+
+.container {
+    width: 900px;
+    border: 1px solid;
+    padding: 10px;
+    height: 300px;
+}
+
+h2 {
+    color: darkslategray;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+.field {
+    width: 500px;
+    align-content: center;
+    height: 200px;
+}

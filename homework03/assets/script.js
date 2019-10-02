@@ -1,6 +1,4 @@
-//make an array of these
-
-var userChoice = ["special", "numeric", "lowerCase", "upperCase"];
+var userChoice = ""
 
 var special = "!#$%&'()*+,-./:;<=>?@[\]^_'";
 var numeric = "1234567890";
@@ -19,22 +17,23 @@ var characters = parseInt(prompt("How many characters would you like your passwo
     
 //create conditionals for which options are chosen
 //look into sort method
-var special = confirm("Click OK to confirm including special characters in your password.");
-var number = confirm("Click OK to confirm including numeric characters in your password.");
-var lowerCase = confirm("Click OK to confirm including lower case letters in your password.");
-var upperCase = confirm("Click OK to confirm including upper case letters in your password.");
 
-    if (userChoice === "special") {
-        
-    }   
+var specialChoice = confirm("Click OK to confirm including special characters in your password.");
+var numberChoice = confirm("Click OK to confirm including numeric characters in your password.");
+var lowerCaseChoice = confirm("Click OK to confirm including lower case letters in your password.");
+var upperCaseChoice = confirm("Click OK to confirm including upper case letters in your password.");
 
-//parseInt
-//switch from = to into populating an array
-function generate (){
-    var password = '';
-    for(var i = 0; i < characters; i++){
-        password = characters.charAt(math.floor(Math.random() * characters.length));
+    if(specialChoice) userChoice += special; 
+    if(numberChoice)  userChoice += number;
+    if(lowerCaseChoice)  userChoice += lowerCase;
+    if(upperCaseChoice)  userChoice += upperCase; {
+        function generate (){
+            var password = '';
+            for(var i = 0; i < userChoice; i++){
+                password += userChoice.charAt(math.floor(Math.random() * characters.length));
+            }
+        }
     }
-}
+    console.log(generate);
 
 //display result to user as an alert
