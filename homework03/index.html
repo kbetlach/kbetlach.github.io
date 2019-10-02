@@ -7,7 +7,6 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="assets/script.js"></script>
   </head>
 
   <body>
@@ -23,13 +22,10 @@
     <div class="row">
         <div class="col-md-12">
     <h2>Generate a Password</h2>
-    <textarea class="field">
-      readonly
-      id="password"
-      placeholder="Your Secure Password"
-      aria-label="Generated Password"
-    </textarea>
-    <button onclick="generate">Generate Password</button>
+    <div id="field">
+      
+    </div>
+    <button id="generate">Generate Password</button>
     <button id="copy">
       Copy to Clipboard
     </button>
@@ -37,4 +33,5 @@
   </div>
 </div>
   </body>
+  <script src="assets/script.js"></script>
 </html>
