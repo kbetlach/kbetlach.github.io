@@ -21,7 +21,6 @@ body {
 h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: darkslategray;
-    text-align: center;
     border-bottom: 1px solid;
     padding-bottom: 10px;
 }
@@ -37,7 +36,7 @@ h2 {
 #generate {
     position: relative;
     top: 10px;
-    padding: 15px;
+    padding: 10px;
     width: 50%;
     background-color: darkslategray;
     color: #ffffff;
@@ -48,9 +47,58 @@ h2 {
     position: relative;
     left: 208px;
     top: 10px;
-    padding: 15px;
+    padding: 10px;
     width: 50%;
     background-color: darkslategray;
     color: #ffffff;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media (max-width: 991px) {
+    #generate {
+        font-size: 14px;
+    }
+
+    #copy {
+        position: relative;
+        left: 165px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    #generate {
+        font-size: 12px;
+        position: absolute;
+        width: 150px;
+    }
+
+    #copy {
+        font-size: 12px;
+        position: absolute;
+        width: 150px;
+        margin-left: 205px;
+    }
+}
+
+@media (max-width:575px) {
+    .container {
+        width: 555px;
+    }
+}
+
+@media (max-width:555px) {
+    .container {
+        width: 525px;
+    }
+}
+
+@media (max-width:411px) {
+    .container {
+        width: 390px;
+    }
+
+    #copy {
+        margin-left: 55px;
+    }
 }
