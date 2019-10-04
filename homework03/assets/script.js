@@ -1,4 +1,4 @@
-var userChoice = "";
+var characters = "";
 
 var special = "!#$%&'()*+,-./:;<=>?@[\]^_'";
 var numeric = "1234567890";
@@ -6,15 +6,15 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     function generate (){
-        userChoice = "";
-        var characters = parseInt(prompt("How many characters would you like your password to contain?"));
-
-    if (characters > 128) {
+        characters = "";
+        var userChoice = parseInt(prompt("How many characters would you like your password to contain?"));
+        console.log(userChoice);
+    if (userChoice > 128) {
         alert("You must pick a character count equal to or less than 128 characters!"); 
         return false;
     }
-    if (characters < 8) {
-        alert("You must pick a character count equal to or greater than 8 characters!")
+    if (userChoice < 8) {
+        alert("You must pick a character count equal to or greater than 8 characters!");
         return false;
     }
 
@@ -24,21 +24,21 @@ var lowerCaseChoice = confirm("Click OK to confirm including lower case letters 
 var upperCaseChoice = confirm("Click OK to confirm including upper case letters in your password.");
 
 if(specialChoice){
-    userChoice += special; 
+    characters += special; 
 }
 if(numberChoice){
-     userChoice += numeric;
+    characters += numeric;
 }
 if(lowerCaseChoice){
-    userChoice += lowerCase;
+    characters += lowerCase;
 }
 if(upperCaseChoice){
-    userChoice += upperCase; 
+    characters += upperCase; 
 }
 
         var password = '';
-        for(var i = 0; i < characters; i++){
-           var password1 = userChoice.charAt(Math.floor(Math.random() * userChoice.length));
+        for(var i = 0; i < userChoice; i++){
+           var password1 = characters.charAt(Math.floor(Math.random() * characters.length));
            password = password + password1;
         }
         document.getElementById("field").innerHTML = password;
