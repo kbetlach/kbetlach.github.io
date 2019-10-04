@@ -47,4 +47,4 @@ Doing this was intimidating at first, but I found a really great and straightfor
 
 (https://www.w3schools.com/howto/howto_css_image_text.asp)
 
-BIg shoutout to all 4 TAs who helped me troubleshoot issues I was having throughout the week. Another shoutout to Brennan, who helped me fix some issues with my navbar!
+Big shoutout to all 4 TAs who helped me troubleshoot issues I was having throughout the week. Another shoutout to Brennan, who helped me fix some issues with my navbar!
