@@ -6,9 +6,10 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     function generate (){
+
         characters = "";
         var userChoice = parseInt(prompt("How many characters would you like your password to contain?"));
-        console.log(userChoice);
+    
     if (userChoice > 128) {
         alert("You must pick a character count equal to or less than 128 characters!"); 
         return false;
@@ -45,3 +46,15 @@ if(upperCaseChoice){
     }
     var buttonClick = document.getElementById("generate")
     buttonClick.addEventListener("click", generate);
+
+//password copy function
+
+    function copyPassword(){
+
+        document.getElementById("field").select();
+
+        document.execCommand("copy");
+
+        alert("Your password is copied to clipboard!");
+
+    }

@@ -10,11 +10,12 @@
   </head>
 
   <body>
+    
       <header>
         <nav class="nav">
         <h1>Password Generator</h1>
         </nav>
-          </header>
+      </header>
     
   <br/>
 
@@ -23,7 +24,7 @@
     <div class="row">
       <div class="col-md-12">
           <h2>Generate a Password</h2>
-          <div id="field"></div>
+          <textarea id="field"></textarea>
       </div>
     </div>
 
@@ -32,7 +33,7 @@
         <button id="generate">Generate Password</button>
       </div>
       <div class="col-md-6">
-        <button onclick="copy()" id="copy">Copy to Clipboard</button>
+        <button onclick="copyPassword()" id="copy">Copy to Clipboard</button>
       </div>
     </div>
 
