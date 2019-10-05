@@ -18,7 +18,7 @@ It can be found here: (https://kbetlach.github.io/homework03/)
 
 Screenshot of finished application:
 
-(assets/images.password_generator.png)
+![](assets/images/password_generater.png)
 
 #####Status
 
@@ -40,7 +40,7 @@ My favorite bit of code is honestly the whole JavaScript portion. Making this ou
     var buttonClick = document.getElementById("generate")
     buttonClick.addEventListener("click", generate);
 
-    I also watched this video a couple times of someone making a password generator using a slider bar, which was really interesting:
+I also watched this video a handful of times of someone creating a password generator using a slidebar, which I found pretty interesting and gave me some ideas.
 
     (https://www.youtube.com/watch?v=9sT03jEwcaw)
 
