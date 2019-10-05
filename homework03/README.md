@@ -18,7 +18,7 @@ It can be found here: (https://kbetlach.github.io/homework03/)
 
 Screenshot of finished application:
 
-![](assets/images/password_generater.png)
+(https://github.com/kbetlach/kbetlach.github.io/blob/master/homework03/assets/images/password_generator.png)
 
 #####Status
 

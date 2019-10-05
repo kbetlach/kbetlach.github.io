@@ -18,7 +18,7 @@ var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         alert("You must pick a character count equal to or greater than 8 characters!");
         return false;
     }
-
+    if (userChoice > 8){
         var specialChoice = confirm("Click OK to confirm including special characters in your password.");
         var numberChoice = confirm("Click OK to confirm including numeric characters in your password.");
         var lowerCaseChoice = confirm("Click OK to confirm including lower case letters in your password.");
@@ -37,14 +37,13 @@ if(lowerCaseChoice){
 if(upperCaseChoice){
     characters += upperCase; 
 }
-
         var password = '';
         for(var i = 0; i < userChoice; i++){
            var password1 = characters.charAt(Math.floor(Math.random() * characters.length));
            password = password + password1;
         }
         document.getElementById("field").innerHTML = password;
-
+    }
     var buttonClick = document.getElementById("generate")
     buttonClick.addEventListener("click", generate);
 
@@ -57,5 +56,4 @@ if(upperCaseChoice){
         document.execCommand("copy");
 
         alert("Your password is copied to clipboard!");
-
     }
