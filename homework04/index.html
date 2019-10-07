@@ -4,9 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>The Code Quiz!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+
 <body>
-    
+    <header>
+        <nav class="nav">
+            <h1>The Code Quiz!</h1>
+            <div class="time">Remaining time will be displayed here!</div>
+        </nav>
+    </header>
+
+<br/>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            Test your coding knowledge with this code quiz!
+        </div>
+    </div>
+
+<br/>
+
+    <div class="row">
+        <div class="col-md-12">
+            Think you've got what it takes? Press the start button below to begin the quiz. Be warned! If you answer a question
+            incorrectly, you will be penalized 10 seconds. You start with 75 seconds...
+        </div>
+    </div>
+
+<br/>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button id="start" onclick="timer()">Start!</button>
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="assets/script.js"></script>
+<script src="assets/questions.js"></script>
+
 </body>
 </html>
