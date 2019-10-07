@@ -1,10 +1,17 @@
 .container {
     width: 900px;
-    border: 10 px solid;
+    border: 1px solid;
+    padding: 10px;
 }
 
 .time {
     margin-left: 800px;    
 }
 
+#scores {
+    margin-left: 675px;
+}
 
+.nav {
+    background-color: sienna;
+}

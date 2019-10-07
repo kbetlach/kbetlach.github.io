@@ -1,6 +1,6 @@
 var quizQuestions = [
     {
-      question1: "What are the three main components that go into web design?",
+      question: "What are the three main components that go into web design?",
       answers: {
         a: "JavaScript, JSON, jQuery",
         b: "HTML, CSS, JavaScript",
@@ -10,7 +10,7 @@ var quizQuestions = [
       correctAnswer: "b"
     },
     {
-      question2: "What does MERN stand for in MERN full stack?",
+      question: "What does MERN stand for in MERN full stack?",
       answers: {
         a: "ModularDB, Express, Reach, Node.js",
         b: "MungoDB, Extracurricular, Rear, Null.js",
@@ -20,7 +20,7 @@ var quizQuestions = [
       correctAnswer: "c"
     },
     {
-      question3: "What is a true / false statement called in JavaScript?",
+      question: "What is a true / false statement called in JavaScript?",
       answers: {
         a: "String",
         b: "Function",
@@ -30,7 +30,7 @@ var quizQuestions = [
       correctAnswer: "c"
     },
     {
-        question4: "What tool can be used to see if a JavaScript function is working or not?",
+        question: "What tool can be used to see if a JavaScript function is working or not?",
         answers: {
           a: "console.log",
           b: "council.log",
@@ -40,7 +40,7 @@ var quizQuestions = [
         correctAnswer: "a"
       },
       {
-        question5: "What is the name of the CSS framework developed by Twitter?",
+        question: "What is the name of the CSS framework developed by Twitter?",
         answers: {
           a: "Bootheel",
           b: "Boolean",

@@ -8,7 +8,7 @@ function timer() {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds left!";
 
-    if(secondsLeft === -1) {
+    if(secondsLeft === 0) {
       clearInterval(timerInterval);
       alert("BZZZZZZZZT! You're out of time!");
     }
@@ -16,3 +16,11 @@ function timer() {
   }, 1000);
 }
 
+//how to make questions appear?
+//wrapper div that switches out content - once start is hit, a quiz template container takes its place
+//wrapper that has a container and inside reside all the questions
+//show and hide questions that all reside in one container
+
+function showQuestions() {
+    
+}
