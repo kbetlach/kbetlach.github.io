@@ -1,4 +1,4 @@
-var quizQuestionsEl = [
+var questions = [
     {
       question: "What are the three main components that go into web design?",
       answers: {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Code Quiz!</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -20,6 +21,8 @@
 <br/>
 
 <div class="container">
+
+    <div class="directions">
 
     <div class="row">
         <div class="col-md-12">
@@ -40,9 +43,11 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button id="start" onclick="timer()">Start!</button>
+            <button id="start" onclick="startQuiz()">Start!</button>
             <button id="scores">View Highscores</button>
         </div>
+    </div>
+    
     </div>
 
     <div id="quiz"></div>
