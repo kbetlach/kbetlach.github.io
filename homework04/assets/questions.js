@@ -58,17 +58,25 @@ function nextQuestion(questionIndex) {
 
   quiz.innerHTML = myQuestions[0].question;
   for (var i = 0; i < 4; i++){
-    console.log(i);
   var button = $("<button>");
   button.addClass("answers");
   button.attr("data-answer",myQuestions[0].answers[i]);
   button.text(myQuestions[0].answers[i]);
-  button.css("background-color", "yellow");
-  quiz.appendChild(button);
-
-  quiz.appendChild(quiz);
-  //feed parameter of current question
-}
+  button.css("background-color", "slategrey");
+  button.appendTo(quiz);
 }
 
-//within next question function, write conditionals for right or wrong, include time penalties.
+var userChoice = userChoice;
+
+if (onclick(answer == myQuestions.correctAnswer)){
+  myQuestions[i++];
+}
+else {
+    myQuestions[i++];
+    secondsLeft - 15;
+}
+  
+nextQuestion(questionNumber);
+}
+
+//within next question function, write conditionals for right or wrong, include time penalties
