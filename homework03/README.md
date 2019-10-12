@@ -8,7 +8,7 @@ The purpose of the application is to provide the user with a secure, randomized 
 
 ###Technologies
 
-The portfolio was created in VS Code using html, css, Bootstrap and JavaScript. 
+The generator was created in VS Code using html, css, Bootstrap and JavaScript. 
 
 ####Launch
 

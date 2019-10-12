@@ -1,38 +1,37 @@
+var myQuestionsIndex = 0;
 var timeEl = document.querySelector(".time");
 var startEl = document.getElementById("start");
 var containerEl = document.querySelector(".container");
 var directionsEl = document.querySelector(".directions");
 var score = 0;
 var secondsLeft = 75;
-//global index for questions, increment by 1 to cycle through
-var questionNumber = 0;
 
 var myQuestions = [
   {
     question: "What are the three main components that go into web design?",
     answers: ["JavaScript, JSON, jQuery", "HTML, CSS, JavaScript", "HTML, variables, Bootstrap","CSS, Terminal, Java"],
-    correctAnswer: "b"
+    correctAnswer: "HTML, CSS, JavaScript"
   },
   {
     question: "What does MERN stand for in MERN full stack?",
     answers: ["ModularDB, Express, Reach, Node.js", "MungoDB, Extracurricular, Rear, Null.js", "MongoDB, Express, React, Node.js", "MangoDB, Espresso, Reaction, NAN.js"],
-    correctAnswer: "c"
+    correctAnswer: "MongoDB, Express, React, Node.js"
   },
   {
     question: "What is a true / false statement called in JavaScript?",
     answers: ["String", "Function", "Boolean", "All of the above"],
-    correctAnswer: "c"
+    correctAnswer: "Boolean"
   },
   {
-      question: "What tool can be used to see if a JavaScript function is working or not?",
-      answers: ["console.log", "council.log", "VS Code", "W3 Schools"],
-      correctAnswer: "a"
-    },
-    {
-      question: "What is the name of the CSS framework developed by Twitter?",
-      answers: ["Bootheel", "Boolean", "Bootlaces", "Bootstrap"],
-      correctAnswer: "d"
-    }
+    question: "What tool can be used to see if a JavaScript function is working or not?",
+    answers: ["console.log", "council.log", "VS Code", "W3 Schools"],
+    correctAnswer: "console.log"
+  },
+  {
+    question: "What is the name of the CSS framework developed by Twitter?",
+    answers: ["Bootheel", "Boolean", "Bootlaces", "Bootstrap"],
+    correctAnswer: "Bootstrap"
+  }
 ];
 
 function startQuiz() {
@@ -50,33 +49,51 @@ function startQuiz() {
 
   }, 1000);
   
-  nextQuestion(questionNumber);
+  console.log(myQuestions[myQuestionsIndex])
+  nextQuestion();
 }
 
-function nextQuestion(questionIndex) {
-  console.log(myQuestions[questionIndex].myQuestion)
+function nextQuestion() {
+  console.log(myQuestions[myQuestionsIndex].question)
 
-  quiz.innerHTML = myQuestions[0].question;
+  quiz.innerHTML = myQuestions[myQuestionsIndex].question;
+
   for (var i = 0; i < 4; i++){
-  var button = $("<button>");
-  button.addClass("answers");
-  button.attr("data-answer",myQuestions[0].answers[i]);
-  button.text(myQuestions[0].answers[i]);
-  button.css("background-color", "slategrey");
-  button.appendTo(quiz);
+    var questionButton = $("<button>");
+    questionButton.addClass("answers");
+    questionButton.attr("data-answer",myQuestions[myQuestionsIndex].answers[i]);
+    questionButton.text(myQuestions[myQuestionsIndex].answers[i]);
+    questionButton.attr("value", myQuestions[myQuestionsIndex].correctAnswer)
+    questionButton.css("background-color", "slategrey");
+    questionButton.css("color", "white");
+    questionButton.appendTo(quiz);
+  }
+  console.log(myQuestions[myQuestionsIndex].correctAnswer)
 }
 
-var userChoice = userChoice;
+$(document).on("click", ".answers",  function(){
+  //alert($(this).attr("data-answer"));
 
-if (onclick(answer == myQuestions.correctAnswer)){
-  myQuestions[i++];
-}
-else {
-    myQuestions[i++];
-    secondsLeft - 15;
-}
+  if (myQuestionsIndex >= myQuestions.length - 1) {
+    console.log("end of quiz");
+    return;
+  } else if ($(this).attr("data-answer") === myQuestions[myQuestionsIndex].correctAnswer){
+    console.log("rightAnswer");
+    score++;
+    myQuestionsIndex++;
+  } else {
+    console.log("wrongAnswer");
+      secondsLeft-15;
+      myQuestionsIndex++;
+  }
   
-nextQuestion(questionNumber);
-}
+  nextQuestion();
+
+})
+
+
+
+
+
 
 //within next question function, write conditionals for right or wrong, include time penalties

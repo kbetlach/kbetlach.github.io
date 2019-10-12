@@ -1,4 +1,9 @@
+body {
+    background: url("../images/organic-tiles.png");
+}
+
 .container {
+    background-color: white;
     width: 900px;
     border: 1px solid;
     padding: 10px;
@@ -10,8 +15,20 @@
 
 #scores {
     margin-left: 675px;
+    background-color: darkslategray;
+    color: white;
+    padding: 5px;
 }
 
 .nav {
-    background-color: sienna;
+    background-color: darkslategray;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    padding: 15px;
+}
+
+#start {
+    background-color: darkslategray;
+    color: white;
+    padding: 5px;
 }
