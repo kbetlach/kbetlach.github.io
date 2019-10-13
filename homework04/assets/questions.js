@@ -72,28 +72,25 @@ function nextQuestion() {
 }
 
 $(document).on("click", ".answers",  function(){
-  //alert($(this).attr("data-answer"));
 
   if (myQuestionsIndex >= myQuestions.length - 1) {
+    score++;
+    alert("End of quiz! Your final score is: " + (score + secondsLeft));
     console.log("end of quiz");
+    console.log(score);
     return;
   } else if ($(this).attr("data-answer") === myQuestions[myQuestionsIndex].correctAnswer){
     console.log("rightAnswer");
     score++;
     myQuestionsIndex++;
+    alert("Correct!");
   } else {
     console.log("wrongAnswer");
-      secondsLeft-15;
+      secondsLeft-=15;
       myQuestionsIndex++;
+      alert("Wrong!");
   }
   
   nextQuestion();
 
 })
-
-
-
-
-
-
-//within next question function, write conditionals for right or wrong, include time penalties
