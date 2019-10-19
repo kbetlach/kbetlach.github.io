@@ -1,10 +1,10 @@
-# Homework04: Code Quiz
+# Homework05: Workday Planner
 
 ##Introduction
 
-Homework04 asked us to create a code quiz that provided the user a timed quiz around five questions long. The timer is set to 75 seconds, and if the user answers a question incorrectly, 15 seconds gets deducted from their remaining time. Their final score at the end of the five questions is the amount of questions they answered correctly multiplied by their remaining time. So the quicker they answer correctly, the more points they get at the end.
+For homework05, we had to create a simple notetaking workday planner that lays out the timeblocks of a workday, from 9 am - 5 pm, and be able to type notes and click save. Upon hitting save, the text will save into local storage, and still be present in the the time block after reloading the page.
 
-We were then tasked with saving user scores in local storage, and being able to display high scores after clicking a button named the same thing.
+Using moment.js, the day will always be accurate at the top of the page, and the timeblocks are color coded according to the time of day. Past hours are a uniform color, the present hour is its own color, and future hours are a uniform color of their own.
 
 ###Technologies
 
@@ -14,40 +14,33 @@ The quiz was created in VS Code using html, css, Bootstrap and JavaScript.
 
 Nothing too fancy! Simply open it up with your favorite web browser to view it! 
 
-It can be found here: (https://kbetlach.github.io/homework04/)
+It can be found here: (https://kbetlach.github.io/homework05/)
 
 #####Status
 
-The program is incomplete. The user will be able to start the quiz, and cycle through the questions, and the program knows when a question was answered correctly or incorrectly. Unfortunately, I didn't have the time to style it as nicely as I wanted, and play with the media queries for smaller screens.
+The program is mostly complete. I struggled with the local storage portion. I was able to make the 9 am time block work with saving and having the text be there after reloading the page. I tried repeating the code for the other buttons, but it wasn't working. When I repeated the code for the 10 am button, it broke the 9 am button. It seems you need to be able to loop through the buttons but I wasn't able to figure out how to do that.
 
-I didn't have time to code in saving scores to local storage or making the view highscores button functional. I simply ran out of time before it was due. I plan to revisit this and complete it in a way that I am happy with.
+Everything else was completed as far as layout and using the moment.js features. I plan to revisit this and fix the other buttons and make sure everything is able to save into local storage.
 
 ######Sources and Inspiration
 
-I found this assignment to be difficult. Chris and all the TAs helped me at various points by helping me revise code, or at least give me ideas to try on my own. Big thanks to them!
+This assignment wasn't too bad. I had a good time with it, but got pretty frustrated at the local storage part. I tried so many different things and nothing worked. I worked with TAs on it, took their suggestions, and still wasn't able to get it over the line. That said, all of the moment.js stuff was pretty neat. I liked this bit of code the most:
 
-I'm pretty satisfied with what I was able to get through, but wish I could have completed it in full. I am most proud of the timer I was able to create.
-
-function startQuiz() {
-  event.preventDefault();
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left!";
-
-    directionsEl.style.display = "none";
-  
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      alert("BZZZZZZZZT! You're out of time!");
+for (var i = 9; i < 18; i++) {
+    if (i < moment().hour()) {
+        $("#" + i).addClass("past")
     }
-
-  }, 1000);
-  
-  console.log(myQuestions[myQuestionsIndex])
-  nextQuestion();
+    else if (i === moment().hour()){
+        $("#" + i).addClass("present")
+    }
+    else {
+        $("#" + i).addClass("future")
+    }
 }
 
-All in this one function, the quiz starts, the timer begins counting down, the first question appears, and the directions on the home screen disappears, and alerts the user when time has run out. Not too bad for one function!
+This loops through the timeblocks and assigns them the classes for the hours of the day after being compared to moment.js' universal clock. Pretty cool!
+
+Thanks to all the TAs who helped me out as well!
 
 
 
