@@ -20,14 +20,24 @@ for (var i = 9; i < 18; i++) {
 
 //Saving timeblock inputs into local storage, and reloading them on refresh.
 
-$("button").on("click", function(event) {
-    event.preventDefault();
-    var textInput = $("#textarea").val();
-    localStorage.setItem("plannerEvent", JSON.stringify(textInput));
-    console.log(textInput);
+$("#button9").on("click", function(event) {
+  event.preventDefault();
+  var textInput9 = $("#textarea9").val();
+    localStorage.getItem("plannedEvent");
+   localStorage.setItem("plannedEvent", JSON.stringify(textInput9));
+   console.log('clicked',textInput9);
 })
 
-$(document).ready(function(){
-    var savedText = JSON.parse(localStorage.getItem("plannerEvent"));
-    $("textarea").text = savedText;
-})
+$("#button10").on("click", function(event) {
+    event.preventDefault();
+    var textInput9 = $("#textarea10").val();
+     localStorage.setItem("plannedEvent", JSON.stringify(textInput9));
+     console.log('clicked',textInput9);
+  })
+
+
+ $(document).ready(function(){
+    var savedText = JSON.parse(localStorage.getItem("plannedEvent"));
+     $("#textarea9").val(savedText);
+     console.log(savedText);
+ })
