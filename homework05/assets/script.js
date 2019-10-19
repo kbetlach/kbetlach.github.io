@@ -22,7 +22,7 @@ for (var i = 9; i < 18; i++) {
 
 $("button").on("click", function(event) {
     event.preventDefault();
-    var textInput = $("#text").val();
+    var textInput = $("#textarea").val();
     localStorage.setItem("plannerEvent", JSON.stringify(textInput));
     console.log(textInput);
 })
