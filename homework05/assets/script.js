@@ -1,6 +1,10 @@
+//Displays current day.
+
 var today = moment().format('dddd, MMMM Do YYYY');
 $("#currentDay").text(today);
 console.log(today);
+
+//Assigns each time block a color in relation to the current time of day.
 
 for (var i = 9; i < 18; i++) {
     if (i < moment().hour()) {
@@ -14,12 +18,13 @@ for (var i = 9; i < 18; i++) {
     }
 }
 
+//Saving timeblock inputs into local storage, and reloading them on refresh.
+
 $("button").on("click", function(event) {
     event.preventDefault();
-    var btnValue = (this.id);
-    $("#textarea" + btnValue)
-    localStorage.setItem("plannerEvent", JSON.stringify(btnValue));
-    
+    var textInput = $("#text").val();
+    localStorage.setItem("plannerEvent", JSON.stringify(textInput));
+    console.log(textInput);
 })
 
 $(document).ready(function(){
