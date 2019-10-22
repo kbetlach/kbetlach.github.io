@@ -18,3 +18,8 @@ h1 {
 .nav {
     padding-bottom: 15px;
 }
+
+#select-city {
+    background-color: darkslategray;
+    color: white;
+}
