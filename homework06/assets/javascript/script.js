@@ -1,0 +1,2 @@
+var APIKey
+var queryURL

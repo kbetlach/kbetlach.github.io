@@ -1,3 +1,7 @@
+body {
+    background: url("../images/sun-pattern.png");
+}
+
 h1 {
     background-color: darkslategray;
     color: white;
@@ -6,3 +10,11 @@ h1 {
     padding: 10px;
 }
 
+.jumbotron {
+    width: 960px;
+    margin-left: 250px;
+}
+
+.nav {
+    padding-bottom: 15px;
+}
