@@ -19,7 +19,7 @@ $("#select-city").on("click", function (event) {
         var iconCode = response.weather[0].icon;
         var weatherIconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
-        $(".city").html("<h3>" + response.name + "<br/>" + moment().format('MMMM do YYYY' + "</h3>"));
+        $(".city").html("<h3>" + response.name + "<br/>" + moment().format('L' + "</h3>"));
         $(".temperature").html("Temperature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
         $(".humidity").html("Humidity: " + response.main.humidity + "%");
         $(".wind").html("Wind Speed: " + response.wind.speed + " mph");
@@ -41,7 +41,7 @@ $("#select-city").on("click", function (event) {
             }).then(function (response) {
                 console.log(response);
 
-
+                
 
             })
         })

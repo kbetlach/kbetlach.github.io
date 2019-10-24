@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src= "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -22,53 +22,38 @@
 
     <div class="container">
 
-    <div class="jumbotron">
-
-        <h2>Search for a city...</h2>
-
-        <br />
-
         <div class="row">
-            <div class="col-md-8">
-                <input class="form-control form-control-md" id="city-search" type="text">
-            </div>
 
             <div class="col-md-4">
-                <input id="select-city" type="submit" value="Search">
+                <h2><strong>Search for a city...</strong></h2>
+                <input type="text" id="city-search">
+                <button type="button" id="select-city" type="submit" value="Search">Search</button>
+
+                <div class="row">
+                    <ul class="city=buttons"></ul>
+                </div>
             </div>
 
+            <div class="col-md-8">
+
+                <h2><strong>Current Weather:</strong></h2>
+
+                <div class="city"></div>
+                <img class="icon"></img>
+                <div class="temperature"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div>
+                <div class="uv"></div>
+
+                <br />
+
+                <h2><strong>5-Day Weather Forecast:</strong></h2>
+            </div>
         </div>
 
-        <br />
+        <div class="row forecast"></div>
 
-        <h2>Current Weather:</h2>
-
-        <div class="city"></div>
-        <img class="icon"></img>
-        <div class="temperature"></div>
-        <div class="humidity"></div>
-        <div class="wind"></div>
-        <div class="uv"></div>
-
-        <br />
-
-        <h2>5-Day Weather Forecast:</h2>
-
-        <br />
-
-        <div class="row">
-
-            <div class="col-md-2" id="day1"></div>
-            <div class="col-md-2" id="day2"></div>
-            <div class="col-md-2" id="day3"></div>
-            <div class="col-md-2" id="day4"></div>
-            <div class="col-md-2" id="day5"></div>
-            <div class="col-md-2"></div>
-
-
-        </div>
-    </div> <!--Jumbotron-->
-</div> <!--Container-->
+    </div> <!--Container-->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/javascript/script.js"></script>
