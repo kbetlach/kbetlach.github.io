@@ -23,7 +23,7 @@ $("#select-city").on("click", function (event) {
         $(".temperature").html("Temperature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
         $(".humidity").html("Humidity: " + response.main.humidity + "%");
         $(".wind").html("Wind Speed: " + response.wind.speed + " mph");
-        $(".icon").attr('src', weatherIconURL).attr('alt, weather icon');
+        $(".icon").attr('src', weatherIconURL).attr('alt', 'weather icon');
 
         var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&apikey=" + apiKey;
 
@@ -41,9 +41,28 @@ $("#select-city").on("click", function (event) {
             }).then(function (response) {
                 console.log(response);
 
-                
+                $(".forecast").empty();
 
+                for (var i = 0; i < 5; i++) {
+                    var newDiv = $("<div>").addClass("bg-primary text-red p-3 mb-2").attr('id', i);
+                    var newRow = $("<div>").addClass("next-line" + [i]);
+                    var forecastTemp = $("<div>").addClass("text-white");
+                    var forecastHumidity = $("<div>").addClass("text-white");
+                    iconCode = response.list[i].weather[0].icon;
+                    iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
+                    iconDiv = $("<img>").attr('src', iconURL).attr('alt', "forecast weather symbol");
+                    newDiv.html(moment().add((i + 1), 'days').format('L'));
+                    $(".forecast").append(newDiv);
+                    $(newDiv).append(newRow);
+                    $(forecastTemp).html("Temp: " + ((response.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(1) + " degrees Fahrenheit");
+                    $(forecastHumidity).html("Humidity: " + response.list[i].main.humidity + "%");
+                    $(".next-line" + i).append(iconDiv);
+                    $("#" + i).append(forecastTemp);
+                    $("#" + i).append(forecastHumidity);
+
+                }       
             })
         })
     })
 });
+
