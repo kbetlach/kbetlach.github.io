@@ -1,10 +1,14 @@
-var citySelection = $("#city-search").val().trim();
-
-$("#select-city").on("click", function (event) {
+$("#select-city").click(function(searchCityWeather) {
     event.preventDefault();
     var citySelection = $("#city-search").val().trim();
     var apiKey = "b090192947ebb72ee8d89e585110389e"
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySelection + "&apikey=" + apiKey;
+
+    var list = $("<li>");
+    list.addClass("btn btn-secondary");
+    list.html(citySelection);
+    $("#city-buttons").append(list);
+    localStorage.setItem('searchedCities', JSON.stringify())
 
     console.log(queryURL);
 
@@ -60,9 +64,8 @@ $("#select-city").on("click", function (event) {
                     $("#" + i).append(forecastTemp);
                     $("#" + i).append(forecastHumidity);
 
-                }       
+                }
             })
         })
     })
 });
-
