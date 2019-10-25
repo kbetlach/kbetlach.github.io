@@ -1,5 +1,5 @@
 $("#select-city").click(function(searchCityWeather) {
-    event.preventDefault();
+    searchCityWeather.preventDefault();
     var citySelection = $("#city-search").val().trim();
     var apiKey = "b090192947ebb72ee8d89e585110389e"
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySelection + "&apikey=" + apiKey;
@@ -8,7 +8,7 @@ $("#select-city").click(function(searchCityWeather) {
     list.addClass("btn btn-secondary");
     list.html(citySelection);
     $("#city-buttons").append(list);
-    localStorage.setItem('searchedCities', JSON.stringify())
+    localStorage.setItem('searchedCities', JSON.stringify(citySelection));
 
     console.log(queryURL);
 
@@ -69,3 +69,11 @@ $("#select-city").click(function(searchCityWeather) {
         })
     })
 });
+
+
+$(document).ready(function(){
+    var savedCities = JSON.parse(localStorage.getItem('searchedCities'));
+    var savedButton = $("<li>");
+    $("#city-buttons").addClass("btn btn-secondary").html(savedCities);
+    $("#city-buttons").append(savedButton);
+})
