@@ -44,17 +44,17 @@ $("#select-city").on("click", function (event) {
                 $(".forecast").empty();
 
                 for (var i = 0; i < 5; i++) {
-                    var newDiv = $("<div>").addClass("bg-primary text-red p-3 mb-2").attr('id', i);
+                    var newDiv = $("<div>").attr('id', i).addClass("bg-secondary p-1 m-1");
                     var newRow = $("<div>").addClass("next-line" + [i]);
                     var forecastTemp = $("<div>").addClass("text-white");
                     var forecastHumidity = $("<div>").addClass("text-white");
                     iconCode = response.list[i].weather[0].icon;
                     iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
                     iconDiv = $("<img>").attr('src', iconURL).attr('alt', "forecast weather symbol");
-                    newDiv.html(moment().add((i + 1), 'days').format('L'));
+                    newDiv.html(moment().add((i + 1), 'days').format('L')).addClass("text-white");
                     $(".forecast").append(newDiv);
                     $(newDiv).append(newRow);
-                    $(forecastTemp).html("Temp: " + ((response.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(1) + " degrees Fahrenheit");
+                    $(forecastTemp).html("Temp: " + ((response.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(1) + " deg F");
                     $(forecastHumidity).html("Humidity: " + response.list[i].main.humidity + "%");
                     $(".next-line" + i).append(iconDiv);
                     $("#" + i).append(forecastTemp);
