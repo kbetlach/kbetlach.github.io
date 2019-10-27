@@ -8,7 +8,7 @@ Using moment.js, the day will always be accurate at the top of the page, and the
 
 ###Technologies
 
-The quiz was created in VS Code using html, css, Bootstrap and JavaScript. 
+The planner was created in VS Code using html, css, Bootstrap and JavaScript. 
 
 ####Launch
 
