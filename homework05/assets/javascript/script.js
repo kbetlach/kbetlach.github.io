@@ -30,14 +30,14 @@ $("#button9").on("click", function(event) {
 
 $("#button10").on("click", function(event) {
     event.preventDefault();
-    var textInput9 = $("#textarea10").val();
-     localStorage.setItem("plannedEvent", JSON.stringify(textInput9));
-     console.log('clicked',textInput9);
+    var textInput10 = $("#textarea10").val();
+     localStorage.setItem("plannedEvent", JSON.stringify(textInput10));
+     console.log('clicked',textInput10);
   })
-
 
  $(document).ready(function(){
     var savedText = JSON.parse(localStorage.getItem("plannedEvent"));
-     $("#textarea9").val(savedText);
+     $("#textarea9").html(savedText);
+     $("#textarea10").html(savedText);
      console.log(savedText);
  })
