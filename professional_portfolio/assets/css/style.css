@@ -51,7 +51,6 @@ header {
     position: relative;
     bottom: 50px;
     background-color: darkslategray;
-    font-family: 'Nanum Gothic', sans-serif;
     color: #ffffff;
     text-align: center;
     padding: 10px;
@@ -65,8 +64,8 @@ header {
     left: 100px;
     color: darkslategray;
     text-align: center;
-    padding: 5px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 20px;
     width: 175px;
 }
 
@@ -97,7 +96,7 @@ h2 {
 
 .card-footer {
     text-align: center;
-    border-top: 8px solid #4aaaa5;
+    border-top: 8px solid darkgray;
     background-color: darkslategray;
     color: #ffffff;
 }
