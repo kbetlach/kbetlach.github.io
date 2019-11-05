@@ -104,6 +104,22 @@ h2 {
     margin: 15px;
 }
 
+#ffdb {
+    height: 250px;
+}
+
+#weather {
+    height: 250px;
+}
+
+#password {
+    height: 250px;
+}
+
+#workday {
+    height: 250px;
+}
+
 @media (max-width: 980px) {
 
     .navbar-brand { 
