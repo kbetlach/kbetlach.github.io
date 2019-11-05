@@ -96,6 +96,14 @@ h2 {
     color: #ffffff;
 }
 
+#linked {
+    margin: 15px;
+}
+
+#git {
+    margin: 15px;
+}
+
 @media (max-width: 980px) {
 
     .navbar-brand { 
