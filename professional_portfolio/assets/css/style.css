@@ -1,5 +1,11 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background-image: url(../images/full-bloom/full-bloom.png);
+    display: flex;
+    flex-direction: column;
 }
 
 #kyle {
@@ -11,7 +17,7 @@ body {
 
 header {
     width: 100%;
-    background-color: #ffffff;
+    background-color :snow;
     border-bottom: 1px solid #cccccc;
     height: 75px;
 }
@@ -74,12 +80,13 @@ header {
 }
 
 .container {
+    flex: 1 0 auto;
     border: 1px solid #dddddd;
     width: 960px;
     margin-top: 25px;
     font-family: 'Nanum Gothic', sans-serif;
     color: darkslategray;
-    background-color: #ffffff;
+    background-color: snow;
     padding: 28px;
 }
 
@@ -95,6 +102,8 @@ h2 {
 }
 
 .card-footer {
+    flex-shrink: 0;
+    width: 100%;
     text-align: center;
     border-top: 8px solid darkgray;
     background-color: darkslategray;
