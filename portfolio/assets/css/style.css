@@ -6,6 +6,10 @@ a:link {
     text-decoration: none;
 }
 
+a {
+    color: darkslategray;
+}
+
 body {
     background-image: url(../images/full-bloom/full-bloom.png);
     display: flex;
@@ -17,6 +21,32 @@ body {
     height: 215px;
     float: left;
     margin-right: 20px;
+}
+
+#cover-bio {
+    border: 1px ridge #dddddd;
+    padding: 10px;
+}
+
+#cover-portfolio {
+    border: 1px ridge #dddddd;
+    padding: 10px;
+}
+
+#cover-contact {
+    border: 1px ridge #dddddd;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid darkslategray;
+}
+
+h3 {
+    text-align: center;
+    color: darkslategray;
 }
 
 header {
