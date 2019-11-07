@@ -2,6 +2,10 @@ html, body {
     height: 100%;
 }
 
+a:link {
+    text-decoration: none;
+}
+
 body {
     background-image: url(../images/full-bloom/full-bloom.png);
     display: flex;
@@ -102,6 +106,7 @@ h2 {
 }
 
 .card-footer {
+    margin-top: 100px;
     flex-shrink: 0;
     width: 100%;
     text-align: center;
