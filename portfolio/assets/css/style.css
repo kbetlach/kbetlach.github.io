@@ -136,7 +136,7 @@ h2 {
 }
 
 .card-footer {
-    margin-top: 100px;
+    margin-top: 50px;
     flex-shrink: 0;
     width: 100%;
     text-align: center;
@@ -174,6 +174,12 @@ h2 {
 
 #workday {
     height: 250px;
+}
+
+@media (max-width: 1200px) {
+    .navbar-brand {
+        margin-left: 100px;
+    }
 }
 
 @media (max-width: 980px) {
@@ -233,7 +239,42 @@ h2 {
         bottom: 75px;
         font-size: 24px;
     }
-    
+
+    .label2 {
+        width: 100px;
+        left: 150px;
+    }
+}
+
+@media (max-width: 698px) {
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .container {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .nav-link {
+        margin-top: 3px;
+        background-color: #ffffff;
+        margin: auto;
+        justify-content: center;
+    }
+
+    ul {
+        width: 100%;
+        justify-content: center;
+        background-color: #ffffff;
+    }
+
+    .label {
+        bottom: 75px;
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -266,4 +307,124 @@ h2 {
         font-size: 24px;
     }
 
+}
+
+@media (max-width: 414px) {
+    .container {
+        width: 390px;
+        margin-left: 10px;
+        margin-top: 65px;
+    }
+
+    .nav-item {
+        width: 75px;
+    }
+
+    .label2 {
+        width: 100px;
+        left: 80px;
+    }
+
+    .card-footer {
+        margin-top: 200px;
+    }
+}
+
+@media (max-width: 411px) {
+    .container {
+        width: 390px;
+        margin-left: 10px;
+        margin-top: 65px;
+    }
+
+    .nav-item {
+        width: 75px;
+    }
+
+    .label2 {
+        width: 100px;
+        left: 80px;
+    }
+
+    #header-about {
+        text-align: center;
+    }
+
+    #header-contact {
+        text-align: center;
+    }
+
+    #header-portfolio {
+        text-align: center;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .container {
+        width: 360px;
+        margin-left: 8px;
+        margin-top: 65px;
+    }
+
+    .nav-item {
+        width: 75px;
+    }
+
+    .label2 {
+        width: 100px;
+        left: 70px;
+    }
+
+    .card-footer {
+        margin-top: 200px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .container {
+        width: 345px;
+        margin-left: 10px;
+        margin-top: 60px;
+    }
+
+    .nav-item {
+        width: 75px;
+    }
+
+    .label2 {
+        width: 100px;
+        left: 70px;
+    }
+
+    #header-about {
+        text-align: center;
+    }
+
+    #header-contact {
+        text-align: center;
+    }
+
+    #header-portfolio {
+        text-align: center;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .container {
+        width: 300px;
+        margin-left: 10px;
+        margin-top: 60px;
+    }
+
+    .nav-item {
+        width: 65px;
+    }
+
+    .label2 {
+        width: 100px;
+        left: 40px;
+    }
 }
