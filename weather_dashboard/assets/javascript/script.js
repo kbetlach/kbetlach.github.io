@@ -1,10 +1,10 @@
 var apiKey = "b090192947ebb72ee8d89e585110389e"
 var savedCities = [];
+var city
 
 function searchCityWeather() {
    
-    var citySelection = $("#city-search").val().trim();
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySelection + "&apikey=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&apikey=" + apiKey;
 
     console.log(queryURL);
 
@@ -33,7 +33,7 @@ function searchCityWeather() {
         }).then(function (response) {
             $(".uv").html("UV Index: " + response.value);
 
-            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySelection + "&apikey=" + apiKey;
+            var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&apikey=" + apiKey;
 
             $.ajax({       //AJAX call for 5-day forecast.
                 url: forecastURL,
@@ -68,12 +68,12 @@ function searchCityWeather() {
 
 //Adds searched cities as a button that stores into local storage.
 function addWeatherButtons() {
-    var citySelection = $("#city-search").val().trim();
+    var city = $("#city-search").val().trim();
     var list = $("<button>");
     list.addClass("btn btn-secondary p-1 m-1");
-    list.html(citySelection);
+    list.html(city);
     $("#city-buttons").append(list);
-    savedCities.push(citySelection);
+    savedCities.push(city);
     localStorage.setItem('searchedCities', JSON.stringify(savedCities));
 }
 
@@ -90,11 +90,13 @@ $(document).ready(function () {
 
 $("#select-city").on("click", function(event){
     event.preventDefault;
+    city = $("#city-search").val().trim();
     searchCityWeather();
     addWeatherButtons();
 })
 
-$("city-buttons").on("click", function(event){
-    event.preventdefault;
+$("#city-buttons").on("click", function(event){
+    event.preventDefault;
+    city = $(this).attr("data-name");
     searchCityWeather();
 })
