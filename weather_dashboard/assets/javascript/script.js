@@ -70,7 +70,7 @@ function searchCityWeather() {
 function addWeatherButtons() {
     var city = $("#city-search").val().trim();
     var list = $("<button>");
-    list.addClass("btn btn-secondary p-1 m-1");
+    list.addClass("btn btn-secondary p-1 m-1 city-btn");
     list.html(city);
     $("#city-buttons").append(list);
     savedCities.push(city);
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
     for (i = 0; i < savedCities.length; i++) {
         var savedButton = $("<button>");
-        savedButton.addClass("btn btn-secondary p-1 m-1").html(savedCities[i]);
+        savedButton.addClass("btn btn-secondary p-1 m-1 city-btn").html(savedCities[i]);
         $("#city-buttons").append(savedButton);
     }
 })
@@ -95,8 +95,9 @@ $("#select-city").on("click", function(event){
     addWeatherButtons();
 })
 
-$("#city-buttons").on("click", function(event){
-    event.preventDefault;
-    city = $(this).attr("data-name");
+$(document).on("click", ".city-btn", function(event){
+    event.preventDefault();
+    console.log($(this));
+    city = $(this).text();
     searchCityWeather();
 })
