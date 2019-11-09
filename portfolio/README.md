@@ -1,12 +1,20 @@
-# Homework02: Bootstrap Portfolio
+Portfolio
+
+Deployed link: (https://kbetlach.github.io/portfolio/)
 
 ##Introduction
 
-For the second assignment, we were tasked with remaking our portfolio from homework01 from scratch using Bootstrap CSS. We were also meant to include media queries and have the pages look a specific way at breakpoints of 980, 768, and 640.
+For the bootcamp, we were tasked with creating and periodically updating a professional portfolio so we could practice design, and then use it in the future for job hunting.
+
+The objective was to display a headshot alongside a short about me section, a gallery of my completed coding projects, and a contact section with ways to get in touch with me and links to other social media platforms.
+
+The completed projects have links to the deployed application, as well as the GitHub repos they live in, so users can view them and access the READMEs for each individual project. 
+
+Designed with mobile first in mind, this portfolio should scale and adjust itself no matter the screen size or device the user is viewing it with.
 
 ###Technologies
 
-The portfolio was created in VS Code using html, css, and Bootstrap. The stylings were provided in the homework01 instructions.
+The portfolio was created in VS Code using html, css, Bootstrap, Animate.css, and Font Awesome. 
 
 ####Launch
 
@@ -14,37 +22,21 @@ Nothing too fancy! Simply open it up with your favorite web browser to view it!
 
 #####Status
 
-Like homework01, the shell of the portfolio is complete, but no other projects are linked through it since they don't exist yet. 
+The portfolio, for now, is complete. The idea is that it will evolve over time as more projects are completed and ready to be staged in the gallery.
+
+Check back in the future to see what projects I've added to keep up with what I'm doing!
 
 ######Sources and Inspiration
 
-This time around, instead of using placeholder images in the portfolio gallery, I used real images and put labels on top of them. This was definitely my favorite part to learn and code. HTML code
+I really enjoy updating this page. It's fun and satsifying to show off things I've worked on, and as someone who really likes design, it's good practice to play with the portfolio and get it to a place I'm happy with.
 
-<div class="row">
-       <div class="col-md-6"><img src="assets/images/mnufc.jpg" class="responsive">
-           <div class="label">Minnesota United FC Quiz</div>
-       </div>
-       <div class="col-md-6"><img src="assets/images/dice.jpg" class="responsive">
-           <div class="label">Dice Roller</div>
-       </div>
-   </div>
+This time around, I had a lot of success using Font Awesome icons for external websites like GitHub and LinkedIn. Here's a snippet of what the code looks like in my navbar:
+
+ <a href="https://www.linkedin.com/in/kyle-betlach"><i class="fab fa-linkedin-in" id="linked"></i></a>
+<a href="https://github.com/kbetlach"><i class="fab fa-github" id="git"></i></a>
    
-   CSS code: 
-   
-   .label {
-       position: relative;
-       bottom: 75px;
-       background-color: #4aaaa5;
-       font-family: Arial, Helvetica, sans-serif;
-       color: #ffffff;
-       text-align: center;
-       padding: 10px;
-       font-size: 16px;
-       width: 100%;
-   }
+Super simple, but looks really clean and streamlined on the page. 
 
-Doing this was intimidating at first, but I found a really great and straightforward article detailing how to do this on w3schools. Within minutes of reading this I finished creating my labels.
+This was my first time also messing around with Animate.css, and it was also really straightforward to get the fade in effects to work for each of my portfolio pages.
 
-(https://www.w3schools.com/howto/howto_css_image_text.asp)
-
-Big shoutout to all 4 TAs who helped me troubleshoot issues I was having throughout the week. Another shoutout to Brennan, who helped me fix some issues with my navbar!
+Shoutout to TA Connor, who helped me troubleshoot some issues with my sticky footer!
