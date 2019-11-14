@@ -1,9 +1,13 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
+const util = require("util");
+const pdf = require('html-pdf');
 
-var promptUser = inquirer
-    .prompt([
+const writeFileAsync = util.promisify(fs.writeFile);
+
+function promptUser() { 
+  return inquirer.prompt([
         {
           type: "input",
           message: "What is your name?",
@@ -25,7 +29,7 @@ var promptUser = inquirer
 
     axios.get(queryURL)
       .then(function(response) {
-      fs.writeFile("profile.html",
+      fs.writeFile("index.html",
 
   `<!DOCTYPE html>
   <html lang="en">
@@ -109,6 +113,29 @@ var promptUser = inquirer
 
         console.log("Successfully created an html file!");      
 
+      })
     })
   })
-})
+}
+
+var html
+
+async function init() {
+  try {
+    const answers = await promptUser();
+
+    await writeFileAsync("index.html", html);
+
+    var readHtml = fs.readFileSync('index.html', 'utf8');
+    var options = { format: 'Letter' };
+     
+    pdf.create(readHtml, options).toFile('profile.pdf', function(err, res) {
+      if (err) return console.log(err);
+      console.log(res); 
+    });
+  }
+  finally{
+  }
+}
+
+  init();
