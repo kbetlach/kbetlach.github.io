@@ -26,7 +26,7 @@ function promptUser() {
   ])
   .then(function({ name, github, color }) {
     const queryURL = `https://api.github.com/users/${github}`;
-
+    
     axios.get(queryURL)
       .then(function(response) {
       fs.writeFile("index.html",
@@ -72,8 +72,12 @@ function promptUser() {
 
 <br />
 
+    <h3 style="text-align:center;">Currently working for: ${response.data.company}</h3>
+
+<br />
+
         <div class="row">
-            <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fas fa-location-arrow"></i> ${response.data.location}</div>
+            <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fas fa-location-arrow"></i><a href="https://google.com/maps/search/${response.data.location}"> ${response.data.location}</a></div>
             <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fab fa-github"></i><a href="https://github.com/${github}"> GitHub</a></div>
             <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fas fa-blog"></i><a href="${response.data.blog}"> Blog</a></div>
         </div>
@@ -89,7 +93,7 @@ function promptUser() {
         <div class="row">
             <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Public Repositories: ${response.data.public_repos}</div>
             <div class="col-md-4"></div>
-            <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">GitHub Stars: </div>
+            <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">GitHub Stars: ${response.data.public_gists}</div>
         </div>
 
 <br />
@@ -118,13 +122,13 @@ function promptUser() {
   })
 }
 
-var html
-
 async function init() {
   try {
     const answers = await promptUser();
 
     await writeFileAsync("index.html", html);
+
+    var html;
 
     var readHtml = fs.readFileSync('index.html', 'utf8');
     var options = { format: 'Letter' };
