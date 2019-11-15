@@ -29,7 +29,7 @@ function promptUser() {
     
     axios.get(queryURL)
       .then(function(response) {
-      fs.writeFile("index.html",
+      fs.writeFile("./index.html",
 
   `<!DOCTYPE html>
   <html lang="en">
@@ -126,16 +126,16 @@ async function init() {
   try {
     const answers = await promptUser();
 
-    await writeFileAsync("index.html", html);
+    await writeFileAsync("./index.html", html);
 
     var html;
 
-    var readHtml = fs.readFileSync('index.html', 'utf8');
+    var readHtml = fs.readFileSync('./index.html', 'utf8');
     var options = { format: 'Letter' };
-     
-    pdf.create(readHtml, options).toFile('profile.pdf', function(err, res) {
+    
+    pdf.create(readHtml, options).toFile('./profile.pdf', function(err, res) {
       if (err) return console.log(err);
-      console.log(res); 
+      console.log(res);
     });
   }
   finally{
