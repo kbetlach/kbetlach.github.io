@@ -4,8 +4,6 @@ const axios = require("axios");
 const util = require("util");
 const pdf = require('html-pdf');
 
-const writeFileAsync = util.promisify(fs.writeFile);
-
 function promptUser() { 
   return inquirer.prompt([
         {
@@ -65,21 +63,21 @@ function promptUser() {
     <div class="jumbotron jumbotron-fluid;" style="margin: 0 auto; background-color: ${color};">
 
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4"><img class="center-block" src="${response.data.avatar_url};" style="height:300px; width: 300px;"></div>
-            <div class="col-md-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4"><img class="center-block" src="${response.data.avatar_url};" style="height:300px; width: 300px;"></div>
+            <div class="col-4"></div>
         </div>
 
 <br />
 
-    <h3 style="text-align:center;">Currently working for: ${response.data.company}</h3>
+    <h3 style="text-align:center;"><strong>Currently working for:</strong> ${response.data.company}</h3>
 
 <br />
 
         <div class="row">
-            <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fas fa-location-arrow"></i><a href="https://google.com/maps/search/${response.data.location}"> ${response.data.location}</a></div>
-            <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fab fa-github"></i><a href="https://github.com/${github}"> GitHub</a></div>
-            <div class="col-md-4" style="text-align: center; font-size: 22px;"><i class="fas fa-blog"></i><a href="${response.data.blog}"> Blog</a></div>
+            <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fas fa-location-arrow"></i><a href="https://google.com/maps/search/${response.data.location}"> ${response.data.location}</a></div>
+            <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fab fa-github"></i><a href="https://github.com/${github}"> GitHub</a></div>
+            <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fas fa-blog"></i><a href="${response.data.blog}"> Blog</a></div>
         </div>
 
     </div>
@@ -91,17 +89,17 @@ function promptUser() {
 <br />
 
         <div class="row">
-            <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Public Repositories: ${response.data.public_repos}</div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">GitHub Stars: ${response.data.public_gists}</div>
+            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Public Repositories: ${response.data.public_repos}</div>
+            <div class="col-4"></div>
+            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">GitHub Stars: ${response.data.public_gists}</div>
         </div>
 
 <br />
 
         <div class="row">
-            <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Followers: ${response.data.followers}</div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Following: ${response.data.following}</div>
+            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Followers: ${response.data.followers}</div>
+            <div class="col-4"></div>
+            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Following: ${response.data.following}</div>
         </div>
 
 <br />
@@ -123,17 +121,17 @@ function promptUser() {
 }
 
 async function init() {
+  
   try {
     const answers = await promptUser();
-
-    await writeFileAsync("./index.html", html);
-
-    var html;
-
-    var readHtml = fs.readFileSync('./index.html', 'utf8');
-    var options = { format: 'Letter' };
     
-    pdf.create(readHtml, options).toFile('./profile.pdf', function(err, res) {
+    var options = {
+        format: 'Letter',
+        height: "17500px",
+        width: "1750px",  
+   }
+
+    await pdf.create(fs.readFileSync('./index.html', 'utf8'), options).toFile('./profile.pdf', function(err, res) {
       if (err) return console.log(err);
       console.log(res);
     });
