@@ -17,7 +17,6 @@ function generateTeamMember() {
                   break;
                 default:
                   console.log("Your team is complete.");
-                  //generate html in here.
               }
         })
 }
@@ -45,7 +44,7 @@ function generateManager() {
     ])
     .then(function({ managerName, managerID, managerEmail, managerOffice }){
         generateTeamMember();
-        fs.writeFile("./team.html",
+        fs.appendFile("./team.html",
 
         `<!DOCTYPE html>
         <html lang="en">
@@ -59,7 +58,7 @@ function generateManager() {
         </head>
         <body>
                 <div class="card" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: gold;">
                           <h5 class="card-title">${managerName}</h5>
                           <p class="card-text"><i class="fas fa-coffee"></i> Manager</p>
                         </div>
@@ -73,7 +72,6 @@ function generateManager() {
         <style>
         
             .card-body {
-                background-color: gold;
                 font-size: 24px;
             }
         
@@ -119,7 +117,7 @@ function generateEngineer() {
     ])
     .then(function({ engineerName, engineerID, engineerEmail, engineerGithub }){
         generateTeamMember();
-        fs.writeFile("./team.html",
+        fs.appendFile("./team.html",
 
         `<!DOCTYPE html>
         <html lang="en">
@@ -133,7 +131,7 @@ function generateEngineer() {
         </head>
         <body>
                 <div class="card" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: royalblue;">
                           <h5 class="card-title">${engineerName}</h5>
                           <p class="card-text"><i class="fas fa-flask"></i> Engineer</p>
                         </div>
@@ -147,7 +145,6 @@ function generateEngineer() {
         <style>
             
             .card-body {
-                background-color: royalblue;
                 font-size: 24px;
             }
         
@@ -193,7 +190,7 @@ function generateIntern() {
     ])
     .then(function({ internName, internID, internEmail, internSchool }){
         generateTeamMember();
-        fs.writeFile("./team.html",
+        fs.appendFile("./team.html",
 
         `<!DOCTYPE html>
         <html lang="en">
@@ -207,7 +204,7 @@ function generateIntern() {
         </head>
         <body>
                 <div class="card" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: crimson;">
                           <h5 class="card-title">${internName}</h5>
                           <p class="card-text"><i class="fas fa-graduation-cap"></i> Intern</p>
                         </div>
@@ -221,7 +218,6 @@ function generateIntern() {
         <style>
             
             .card-body {
-                background-color: crimson;
                 font-size: 24px;
             }
         
