@@ -23,7 +23,7 @@ function generateTeamMember() {
 }
 
 function generateManager() {
-    console.log("Please build your team.");
+    console.log("***** Please build your team. *****");
     return inquirer.prompt([
         {
             type: "input",
@@ -43,9 +43,57 @@ function generateManager() {
             name: "managerOffice"
         }
     ])
-    .then(function(answer){
-        //generate manager html
+    .then(function({ managerName, managerID, managerEmail, managerOffice }){
         generateTeamMember();
+        fs.writeFile("./team.html",
+
+        `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>My Team - Profile</title>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+        <body>
+                <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${managerName}</h5>
+                          <p class="card-text"><i class="fas fa-coffee"></i> Manager</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${managerID}</li>
+                          <li class="list-group-item">Email: ${managerEmail}</li>
+                          <li class="list-group-item">Office Number: ${managerOffice}</li>
+                        </ul>
+                </div>
+            
+        <style>
+        
+            .card-body {
+                background-color: gold;
+                font-size: 24px;
+            }
+        
+            .card-title {
+                font-size: 26px;
+            }
+        
+            .card {
+                border: outset;
+            }
+        
+        </style>
+        
+        </body>
+        </html>`,
+
+(err) => {
+    if (err)
+        throw err;
+      }) 
     })
 }
 
@@ -69,9 +117,57 @@ function generateEngineer() {
             name: "engineerGithub"
         }
     ])
-    .then(function(answer){
-        //generate manager html
+    .then(function({ engineerName, engineerID, engineerEmail, engineerGithub }){
         generateTeamMember();
+        fs.writeFile("./team.html",
+
+        `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>My Team - Profile</title>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+        <body>
+                <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${engineerName}</h5>
+                          <p class="card-text"><i class="fas fa-flask"></i> Engineer</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${engineerID}</li>
+                          <li class="list-group-item">Email: ${engineerEmail}</li>
+                          <li class="list-group-item">GitHub: ${engineerGithub}</li>
+                        </ul>
+                </div>
+            
+        <style>
+            
+            .card-body {
+                background-color: royalblue;
+                font-size: 24px;
+            }
+        
+            .card-title {
+                font-size: 26px;
+            }
+        
+            .card {
+                border: outset;
+            }
+        
+        </style>
+        
+        </body>
+        </html>`,
+
+(err) => {
+    if (err)
+        throw err;
+      }) 
     })
 }
 
@@ -84,7 +180,7 @@ function generateIntern() {
         }, {
             type: "input",
             message: "What is your intern's employee ID?",
-            name: "engineerID"
+            name: "internID"
         }, {
             type: "input",
             message: "What is your intern's email address?",
@@ -95,10 +191,57 @@ function generateIntern() {
             name: "internSchool"
         }
     ])
-    .then(function(answer){
-        //generate manager html
+    .then(function({ internName, internID, internEmail, internSchool }){
         generateTeamMember();
+        fs.writeFile("./team.html",
+
+        `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>My Team - Profile</title>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+        <body>
+                <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${internName}</h5>
+                          <p class="card-text"><i class="fas fa-graduation-cap"></i> Intern</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${internID}</li>
+                          <li class="list-group-item">Email: ${internEmail}</li>
+                          <li class="list-group-item">School: ${internSchool}</li>
+                        </ul>
+                </div>
+            
+        <style>
+            
+            .card-body {
+                background-color: crimson;
+                font-size: 24px;
+            }
+        
+            .card-title {
+                font-size: 26px;
+            }
+        
+            .card {
+                border: outset;
+            }
+        
+        </style>
+        
+        </body>
+        </html>`,
+
+(err) => {
+    if (err)
+        throw err;
+      }) 
     })
 }
-
 generateManager();
