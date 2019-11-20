@@ -71,17 +71,29 @@ function generateManager() {
             
         <style>
         
-            .card-body {
-                font-size: 24px;
-            }
-        
-            .card-title {
-                font-size: 26px;
-            }
-        
-            .card {
-                border: outset;
-            }
+        body {
+            font-family: 'Lora', serif;
+            background: url("images/interlaced.png");
+        }
+
+        header {
+            background-color: rosybrown;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card-body {
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 26px;
+        }
+
+        .card {
+            margin: 25px;
+            border: outset;
+        }
         
         </style>
         
@@ -144,17 +156,29 @@ function generateEngineer() {
             
         <style>
             
-            .card-body {
-                font-size: 24px;
-            }
-        
-            .card-title {
-                font-size: 26px;
-            }
-        
-            .card {
-                border: outset;
-            }
+        body {
+            font-family: 'Lora', serif;
+            background: url("images/interlaced.png");
+        }
+
+        header {
+            background-color: rosybrown;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card-body {
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 26px;
+        }
+
+        .card {
+            margin: 25px;
+            border: outset;
+        }
         
         </style>
         
@@ -217,17 +241,29 @@ function generateIntern() {
             
         <style>
             
-            .card-body {
-                font-size: 24px;
-            }
-        
-            .card-title {
-                font-size: 26px;
-            }
-        
-            .card {
-                border: outset;
-            }
+        body {
+            font-family: 'Lora', serif;
+            background: url("images/interlaced.png");
+        }
+
+        header {
+            background-color: rosybrown;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card-body {
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 26px;
+        }
+
+        .card {
+            margin: 25px;
+            border: outset;
+        }
         
         </style>
         
