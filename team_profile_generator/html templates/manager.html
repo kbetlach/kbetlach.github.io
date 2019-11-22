@@ -6,31 +6,9 @@
         <meta content="ie=edge" http-equiv="X-UA-Compatible">
         <title>My Team - Profile</title>
         <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
         <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     </head>
     <body>
-
-        <header>
-               <h1>A Snapshot of my Team</h1>
-            </nav>
-        </header>
-
-        <br />
-
-        <div class="card" style="width: 18rem;">
-            <div class="card-body" style="background-color: gold;">
-                <h5 class="card-title">${managerName}</h5>
-                <p class="card-text">
-                    <i class="fas fa-coffee"></i>
-                    Manager</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${managerID}</li>
-                <li class="list-group-item">Email: ${managerEmail}</li>
-                <li class="list-group-item">Office Number: ${managerOffice}</li>
-            </ul>
-        </div>
 
         <style>
 
@@ -40,7 +18,8 @@
             }
 
             header {
-                background-color: rosybrown;
+                background-color: teal;
+                color: white;
                 text-align: center;
                 padding: 15px;
             }
@@ -59,5 +38,29 @@
             }
         </style>
 
-    </body>
-</html>
+        <header>
+            <h1>Team Profile</h1>
+        </header>
+
+        <br/>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body" style="background-color: gold;">
+                            <h5 class="card-title">${managerName}</h5>
+                            <p class="card-text">
+                                <i class="fas fa-coffee"></i>
+                                Manager</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>ID</strong>: ${managerID}</li>
+                            <li class="list-group-item">
+                                <strong>Email</strong>: ${managerEmail}</li>
+                            <li class="list-group-item">
+                                <strong>Office Number</strong>: ${managerOffice}</li>
+                        </ul>
+                    </div>
+                </div>

@@ -1,63 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="ie=edge" http-equiv="X-UA-Compatible">
-        <title>My Team - Profile</title>
-        <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
-        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
-    </head>
-    <body>
-
-        <header>
-               <h1>A Snapshot of my Team</h1>
-            </nav>
-        </header>
-
-        <br />
-
-        <div class="card" style="width: 18rem;">
-            <div class="card-body" style="background-color: crimson;">
-                <h5 class="card-title">${internName}</h5>
-                <p class="card-text">
-                    <i class="fas fa-graduation-cap"></i>
-                    Intern</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${internID}</li>
-                <li class="list-group-item">Email: ${internEmail}</li>
-                <li class="list-group-item">School: ${internSchool}</li>
-            </ul>
+<div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body" style="background-color: crimson;">
+            <h5 class="card-title">${internName}</h5>
+            <p class="card-text">
+                <i class="fas fa-graduation-cap"></i>
+                Intern</p>
         </div>
-
-        <style>
-
-                body {
-                    font-family: 'Lora', serif;
-                    background: url("../images/interlaced.png");
-                }
-    
-                header {
-                    background-color: rosybrown;
-                    text-align: center;
-                    padding: 15px;
-                }
-    
-                .card-body {
-                    font-size: 24px;
-                }
-    
-                .card-title {
-                    font-size: 26px;
-                }
-    
-                .card {
-                    margin: 25px;
-                    border: outset;
-                }
-            </style>
-
-    </body>
-</html>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>ID</strong>: ${internID}</li>
+            <li class="list-group-item">
+                <strong>Email</strong>: ${internEmail}</li>
+            <li class="list-group-item">
+                <strong>School</strong>: ${internSchool}</li>
+        </ul>
+    </div>
+</div>

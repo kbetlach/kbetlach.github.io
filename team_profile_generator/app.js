@@ -15,13 +15,11 @@ function generateTeamMember() {
                 break;
             default:
                 console.log("***** Your team is complete. *****");
-                fs.appendFile("./team.html", "</div></div></body></html>", (err) => {
+                fs.appendFile("output/./team.html", "</div></div></body></html>", 
+                (err) => {
                     if (err) 
                         throw err;
-                    
-
-
-                });
+            });
         }
     })
 }
@@ -48,7 +46,7 @@ function generateManager() {
         }
     ]).then(function ({managerName, managerID, managerEmail, managerOffice}) {
         generateTeamMember();
-        fs.writeFile("./team.html", `<!DOCTYPE html>
+        fs.writeFile("output/./team.html", `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -64,11 +62,12 @@ function generateManager() {
         
         body {
             font-family: 'Lora', serif;
-            background: url("images/interlaced.png");
+            background: url("../images/interlaced.png");
         }
 
         header {
-            background-color: rosybrown;
+            background-color: teal;
+            color: white;
             text-align: center;
             padding: 15px;
         }
@@ -89,35 +88,36 @@ function generateManager() {
         </style>
 
         <header>
-            <h1>A Snapshot of my Team</h1>
+            <h1>Team Profile</h1>
         </header>
 
  <br />
- <div class="container">
- <div class="row">
- <div class="col-md-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                         <div class="card-body" style="background-color: gold;">
                           <h5 class="card-title">${managerName}</h5>
                           <p class="card-text"><i class="fas fa-coffee"></i> Manager</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${managerID}</li>
-                          <li class="list-group-item">Email: ${managerEmail}</li>
-                          <li class="list-group-item">Office Number: ${managerOffice}</li>
+                          <li class="list-group-item"><strong>ID</strong>: ${managerID}</li>
+                          <li class="list-group-item"><strong>Email</strong>: ${managerEmail}</li>
+                          <li class="list-group-item"><strong>Office Number</strong>: ${managerOffice}</li>
                         </ul>
-</div>
-                </div>`, (err) => {
+    </div>
+        </div>`, 
+                
+        (err) => {
             if (err) 
                 throw err;
-            
-
-
-        })
+            })
     })
 }
 
 function generateEngineer() {
+    console.log("***** Please enter your engineer's information. *****")
     return inquirer.prompt([
         {
             type: "input",
@@ -138,7 +138,7 @@ function generateEngineer() {
         }
     ]).then(function ({engineerName, engineerID, engineerEmail, engineerGithub}) {
         generateTeamMember();
-        fs.appendFile("./team.html", `
+        fs.appendFile("output/./team.html", `
         <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                         <div class="card-body" style="background-color: royalblue;">
@@ -146,22 +146,21 @@ function generateEngineer() {
                           <p class="card-text"><i class="fas fa-flask"></i> Engineer</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${engineerID}</li>
-                          <li class="list-group-item">Email: ${engineerEmail}</li>
-                          <li class="list-group-item">GitHub: ${engineerGithub}</li>
+                          <li class="list-group-item"><strong>ID</strong>: ${engineerID}</li>
+                          <li class="list-group-item"><strong>Email</strong>: ${engineerEmail}</li>
+                          <li class="list-group-item"><strong>GitHub</strong>: ${engineerGithub}</li>
                         </ul>
-                </div>
-                </div>`, (err) => {
-            if (err) 
-                throw err;
-            
-
-
-        })
+            </div>
+                </div>`, 
+                (err) => {
+                    if (err) 
+                        throw err;
+            })
     })
 }
 
 function generateIntern() {
+    console.log("***** Please enter your intern's information. *****")
     return inquirer.prompt([
         {
             type: "input",
@@ -182,7 +181,7 @@ function generateIntern() {
         }
     ]).then(function ({internName, internID, internEmail, internSchool}) {
         generateTeamMember();
-        fs.appendFile("./team.html", `
+        fs.appendFile("output/./team.html", `
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                         <div class="card-body" style="background-color: crimson;">
@@ -190,19 +189,17 @@ function generateIntern() {
                           <p class="card-text"><i class="fas fa-graduation-cap"></i> Intern</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${internID}</li>
-                          <li class="list-group-item">Email: ${internEmail}</li>
-                          <li class="list-group-item">School: ${internSchool}</li>
+                          <li class="list-group-item"><strong>ID</strong>: ${internID}</li>
+                          <li class="list-group-item"><strong>Email</strong>: ${internEmail}</li>
+                          <li class="list-group-item"><strong>School</strong>: ${internSchool}</li>
                         </ul>
                 </div>
-            </div>
-                `, (err) => {
-            if (err) 
-                throw err;
-            
-
-
-        })
+            </div>`, 
+                (err) => {
+                    if (err) 
+                        throw err;
+            })
     })
 }
+
 generateManager();
