@@ -18,9 +18,7 @@ It can be found here: (https://kbetlach.github.io/homework06/)
 
 #####Status
 
-The program is 95% complete. Everything is functional except being able to click the generated buttons and see the weather data pop up again. The searched city buttons will successfully generate and store themselves in local storage, but they are currently not clickable.
-
-I fully intend to fix this minor issue and make the program completely functional as intended by the homework instructions.
+The program is complete and working as intended.
 
 ######Sources and Inspiration
 

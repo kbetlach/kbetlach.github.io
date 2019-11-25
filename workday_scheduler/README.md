@@ -18,9 +18,7 @@ It can be found here: (https://kbetlach.github.io/homework05/)
 
 #####Status
 
-The program is mostly complete. I struggled with the local storage portion. I was able to make the 9 am time block work with saving and having the text be there after reloading the page. I tried repeating the code for the other buttons, but it wasn't working. When I repeated the code for the 10 am button, it broke the 9 am button. It seems you need to be able to loop through the buttons but I wasn't able to figure out how to do that.
-
-Everything else was completed as far as layout and using the moment.js features. I plan to revisit this and fix the other buttons and make sure everything is able to save into local storage.
+The program is complete and working as intended.
 
 ######Sources and Inspiration
 
