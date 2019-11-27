@@ -1,15 +1,16 @@
 var express = require("express");
 var path = require("path");
-
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+var notes = [];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'))
 
-app.get("*", function(req, res) {
+app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
@@ -19,6 +20,17 @@ app.get("/notes", function(req, res) {
 
 app.get("/api/notes", function(req, res) {
   return res.json(notes);
+});
+
+app.get("/api/notes", function (req, res) {
+  res.sendFile(path.join(__dirname, "db/db.json"))
+});
+
+app.post("/api/notes", function(req, res) {
+  var newNote = req.body;  
+  console.log(newNote);
+  notes.push(newNote);
+  res.json(newNote);
 });
 
 app.listen(PORT, function() {
