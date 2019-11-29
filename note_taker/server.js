@@ -33,6 +33,12 @@ app.post("/api/notes", function(req, res) {
   res.json(newNote);
 });
 
+app.delete("/api/notes", function (req, res) {
+  var noteID = $(this).val();
+  console.log("Note has been successfully deleted,");
+  res.json(noteID);
+});
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
