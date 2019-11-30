@@ -1,6 +1,7 @@
 var express = require("express");
 var path = require("path");
 var app = express();
+var fs = require("fs");
 var PORT = process.env.PORT || 3000;
 
 var notes = [];
@@ -22,8 +23,8 @@ app.get("/api/notes", function(req, res) {
   return res.json(notes);
 });
 
-app.get("/api/notes", function (req, res) {
-  res.sendFile(path.join(__dirname, "db/db.json"))
+app.get("/api/notes", function(req, res) {
+  res.json(fs.read(path.join(__dirname, "db/db.json")));
 });
 
 app.post("/api/notes", function(req, res) {
