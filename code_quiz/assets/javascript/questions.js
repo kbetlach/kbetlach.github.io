@@ -1,8 +1,8 @@
 var myQuestionsIndex = 0;
-var timeEl = document.querySelector(".time");
-var startEl = document.getElementById("start");
-var containerEl = document.querySelector(".container");
-var directionsEl = document.querySelector(".directions");
+var time = document.querySelector(".time");
+var start = document.getElementById("start");
+var container = document.querySelector(".container");
+var directions = document.querySelector(".directions");
 var score = 0;
 var secondsLeft = 75;
 
@@ -38,9 +38,9 @@ function startQuiz() {
   event.preventDefault();
   var timerInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left!";
+    time.textContent = secondsLeft + " seconds left!";
 
-    directionsEl.style.display = "none";
+    directions.style.display = "none";
   
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
