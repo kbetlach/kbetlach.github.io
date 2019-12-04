@@ -44,14 +44,17 @@ app.post("/api/notes", function (req, res) {
 
 app.delete("/api/notes/:id", function (req, res) {
     console.log(req.params.id);
-    //filter to find index of the id, store the id and then remove it
-    //variable = to ID
-    //splice or slice?
-    //after removing, do another get call to repopulate
+    var deleteID = req.params.id;
+    notes.splice(deleteID, 1);
+    assignID();
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes, null, 2), function (err) {
+        if (err) 
+            throw err 
+    });
 });
 
 function assignID() {
-    for (i = 0; i < notes.length; i ++) {
+    for (i = 0; i < notes.length; i++) {
         notes[i].id = i;
     }
 }
