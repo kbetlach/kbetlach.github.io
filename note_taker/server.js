@@ -47,9 +47,8 @@ app.delete("/api/notes/:id", function (req, res) {
     var deleteID = req.params.id;
     notes.splice(deleteID, 1);
     assignID();
-    fs.writeFileSync("./db/db.json", JSON.stringify(notes, null, 2), function (err) {
-        if (err) 
-            throw err 
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes), function(err) {
+        if (err) throw err
     });
 });
 
