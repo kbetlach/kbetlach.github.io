@@ -13,8 +13,6 @@ var savedNotes = fs.readFileSync("./db/db.json", "UTF-8");
 if (savedNotes) {
     var oldNotes = JSON.parse(savedNotes);
     notes = oldNotes;
-} else {
-    notes = [];
 }
 
 app.get("/", function (req, res) {
@@ -42,7 +40,7 @@ app.post("/api/notes", function (req, res) {
 });
 
 app.delete("/api/notes/:id", function (req, res) {
-    console.log(req.params.id);
+    console.log("Note deleted.");
     var deleteID = req.params.id;
     notes.splice(deleteID, 1);
     assignID();

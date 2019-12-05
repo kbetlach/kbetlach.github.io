@@ -12,9 +12,9 @@ The app was created in VS Code using html, css, Bootstrap, FontAwesome, JavaScri
 
 ####Launch
 
-To run this app, you would need to do a lot of over complicated things, like go to my GitHub and copy all the code into VS Code and then run the server through the terminal, etc. etc. An easier way would be looking at the completed product through Heroku, which I haven't fully grasped how to do yet. We'll be learning more about this soon.
+Here is the link to the deployed app on Heroku:
 
-I plan on hosting this on Heroku for ease of display in the future. Deal?
+(https://note-taker-kb.herokuapp.com/notes)
 
 #####Status
 
