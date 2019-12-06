@@ -25,3 +25,7 @@ CREATE TABLE employee (
     manager_id INT,
     PRIMARY KEY(employee_id)
     );
+    
+    SELECT * FROM department;
+    SELECT * FROM role;
+    SELECT * FROM employee;
