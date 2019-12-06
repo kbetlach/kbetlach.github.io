@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var console_table = require("console.table");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -10,7 +11,7 @@ var connection = mysql.createConnection({
     user: "root",
   
     // Your password
-    password: "",
-    database: ""
+    password: "root",
+    database: "employee_db"
   });
   
