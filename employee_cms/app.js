@@ -63,13 +63,14 @@ function start() {
 }
 
 function viewAll() {
-    connection.query("SELECT * FROM employee", function(err, res) {
+    connection.query("SELECT * FROM employee, role, department", function(err, res) {
+        //where manager id = employee id, give me the name.
+        //do a bunch of left joins on the primary / foreign keys to link tables.
       if (err) throw err;
-      console.log(res);
+      console.table(res);
       start();
     });
   }
-
 
 function byDepartment() {
 
