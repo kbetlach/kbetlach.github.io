@@ -17,6 +17,8 @@ connection.connect(function (err) {
     if (err) 
         throw err;
     
+
+
     console.log("***** WELCOME TO THE EMPLOYEE DATABASE *****");
     start();
 });
@@ -29,11 +31,12 @@ function start() {
         choices: [
             "View All Employees",
             "View All Employees By Department",
-            "View All Employess By Manager",
+            "View All Employees By Role",
             "Add Employee",
             "Remove Employee",
             "Update Employee Role",
-            "Update Employee Manager"
+            "Update Employee Manager",
+            "Quit"
         ]
     }).then(function (answer) {
         switch (answer.action) {
@@ -41,19 +44,15 @@ function start() {
                 break;
             case "View All Employees By Department": byDepartment();
                 break;
-            case "View All Employees By Manager": byManager();
+            case "View All Employees By Role": byRole();
                 break;
-            case "Add Employee":
-                addEmployee();
+            case "Add Employee": addEmployee();
                 break;
-            case "Remove Employee":
-                removeEmployee();
+            case "Remove Employee": removeEmployee();
                 break;
-            case "Update Employee Role":
-                updateRole();
+            case "Update Employee Role": updateRole();
                 break;
-            case "Update Employee Manager":
-                updateManager();
+            case "Update Employee Manager": updateManager();
                 break;
             default: connection.end();
         }
@@ -61,111 +60,124 @@ function start() {
 }
 
 function viewAll() {
-    connection.query("SELECT * FROM employee, role, department", function (err, res) {
-        // where manager id = employee id, give me the name.
-        // do a bunch of left joins on the primary / foreign keys to link tables.
+    connection.query("SELECT * FROM employee INNER JOIN roles ON employee.role_id = roles.id INNER JOIN department ON roles.department_id = department.id", function (err, res) {
         if (err) 
             throw err;
         
+
+
         console.table(res);
         start();
     });
 }
 
 function byDepartment() {
-    return inquirer.prompt({
+    inquirer.prompt({
         type: "list",
         message: "Which department's employees would you like to view?",
         name: "departmentChoice",
         choices: ["Engineering", "Sales", "Finance", "Human Resources",]
     }).then(function (answer) {
-        switch (answer.action) {
-            case "Engineering":
-                viewEngineering();
-                break;
-            case "Sales":
-                viewSales();
-                break;
-            case "Finance":
-                viewFinance();
-                break;
-            case "Human Resources":
-                viewHR();
-                break;
-            default: start();
+        if (answer.departmentChoice === "Engineering" || "Sales" || "Finance" || "Human Resources") {
+            connection.query("SELECT * FROM employee INNER JOIN roles ON employee.role_id = roles.id INNER JOIN department ON roles.department_id = department.id WHERE department.department = ?", [answer.departmentChoice], function (err, res) {
+                if (err) 
+                    throw err;
+                
+
+
+                console.table(res);
+                start();
+            });
         }
-    })
+    });
 }
 
-function byManager() {
-    return inquirer.prompt({
+function byRole() {
+    inquirer.prompt({
+        name: "roleChoice",
         type: "list",
-        message: "Which manager's employees would you like to view?",
-        name: "managerChoice",
-        choices: ["Andrew Kolander", "Dan Marshall",]
+        message: "Which role would you like to see employees for?",
+        choices: [
+            "Junior Developer",
+            "Senior Developer",
+            "Salesperson",
+            "Head of Sales",
+            "Accountant",
+            "HR Representative"
+        ]
     }).then(function (answer) {
-        switch (answer.action) {
-            case "Andrew Kolander":
-                viewAndrew();
-                break;
-            case "Dan Marshall":
-                viewDan();
-                break;
-            default: start();
+        if (answer.role === "Junior Developer" || "Senior Developer" || "Salesperson" || "Head of Sales" || "Accountant" || "HR Representative") {
+            connection.query("SELECT * FROM employee INNER JOIN roles ON employee.role_id = roles.id WHERE title = ?", [answer.roleChoice], function (err, res) {
+                if (err) 
+                    throw err;
+                
+
+
+                console.table(res);
+                start();
+            });
         }
-    })
+    });
 }
 
-function addEmployee () {
-    console.log("Inserting a new product...\n");
-    var query = connection.query(
-      "INSERT INTO products SET ?",
-      {
-        flavor: "Rocky Road",
-        price: 3.0,
-        quantity: 50
-      },
-      function(err, res) {
-        if (err) throw err;
-        console.log(res.affectedRows + " product inserted!\n");
-        // Call updateProduct AFTER the INSERT completes
-        updateProduct();
-      }
-    );
-}
+function addEmployee() {
+    inquirer.prompt([
+        {
+            name: "firstName",
+            type: "input",
+            message: "What is the employee's first name?"
+        }, {
+            name: "lastName",
+            type: "input",
+            message: "What is the employee's last name?"
+        }, {
+            name: "role",
+            type: "list",
+            message: "What is the employee's role?",
+            choices: [
+                "Junior Developer",
+                "Senior Developer",
+                "Salesperson",
+                "Head of Sales",
+                "Accountant",
+                "HR Representative"
+            ]
+        }, {
+            name: "manager",
+            type: "list",
+            message: "What is the employee's manager's ID number?",
+            choices: ["Andrew Kolander", "Dan Marshall", "null"]
+        }
+    ])
+    .then(function (answer) {
+        connection.query("INSERT INTO employee SET ?",
+          {
+            first_name: answer.firstName,
+            last_name: answer.lastName,
+            manager_id: answer.manager
+          },
+          function (err, res) {
+            if (err) throw err;
+          }
+        );
+        connection.query("INSERT INTO role SET ?",
+          {
+            title: answer.role
+          },
+          function (err, res) {
+            if (err) throw err;
+            
+            console.table(res)
+            console.log("Employee has successfully been added to the database!");
+            start();
+          }
+        );
+      });
+  }
 
-function removeEmployee () {
+  //for loop to pull length of employees, and console log them as choices for each of these functions?
+function removeEmployee() {}
 
-}
+function updateRole() {}
 
-function updateRole () {
-
-}
-
-function updateManager () {
-
-}
-
-function viewEngineering () {
-
-}
-
-function viewSales () {
-
-}
-
-function viewFinance () {
-
-}
-
-function viewHR () {
-
-}
-
-function viewAndrew() {
-
-}
-
-function viewDan() {
-
-}
+function updateManager() {}
