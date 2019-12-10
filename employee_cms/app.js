@@ -1,6 +1,18 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var table = require("console.table");
+var CFonts = require("cfonts");
+
+CFonts.say('Employee|Database', {
+  font: 'block',
+  align: 'center',
+  colors: ['system'],
+  background: 'transparent',
+  letterSpacing: 1,
+  lineHeight: 1,
+  space: true,
+  maxLength: '0',
+});
 
 var connection = mysql.createConnection({
     host: "localhost", port: 3306,
@@ -33,7 +45,6 @@ function start() {
             "View All Employees By Department",
             "View All Employees By Role",
             "Add Employee",
-            "Remove Employee",
             "Update Employee Role",
             "Update Employee Manager",
             "Quit"
@@ -48,13 +59,13 @@ function start() {
                 break;
             case "Add Employee": addEmployee();
                 break;
-            case "Remove Employee": removeEmployee();
-                break;
             case "Update Employee Role": updateRole();
                 break;
             case "Update Employee Manager": updateManager();
                 break;
-            default: connection.end();
+            default: 
+                console.log("***** PLEASE COME AGAIN *****")
+                connection.end();
         }
     })
 }
@@ -64,8 +75,6 @@ function viewAll() {
         if (err) 
             throw err;
         
-
-
         console.table(res);
         start();
     });
@@ -133,7 +142,7 @@ function addEmployee() {
         }, {
             name: "role",
             type: "list",
-            message: "What is the employee's role?",
+            message: "What is the employee's tilte?",
             choices: [
                 "Junior Developer",
                 "Senior Developer",
@@ -145,39 +154,137 @@ function addEmployee() {
         }, {
             name: "manager",
             type: "list",
-            message: "What is the employee's manager's ID number?",
-            choices: ["Andrew Kolander", "Dan Marshall", "null"]
+            message: "Who is the employee's manager?",
+            choices: ["Andrew Kolander", "Dan Marshall", "None"]
         }
     ])
     .then(function (answer) {
+        var role_id;
+        if (answer.role === "Junior Developer") {
+          role_id = 1;
+        }
+        else if (answer.role === "Senior Developer") {
+            role_id = 2;
+        }
+        else if (answer.role === "Salesperson") {
+            role_id = 3;
+        }
+        else if (answer.role === "Head of Sales") {
+            role_id = 4;
+        }
+        else if (answer.role === "Accountant") {
+            role_id = 5;
+        }
+        else if (answer.role === "HR Representative") {
+            role_id = 6;
+        }
+
+        var manager_id;
+        if (answer.manager === "Andrew Kolander") {
+          manager_id = 1;
+        }
+        else if (answer.manager === "Dan Marshall") {
+          manager_id = 6;
+        }
+        else if (answer.manager === "None") {
+          manager_id = null;
+        }
+        
         connection.query("INSERT INTO employee SET ?",
-          {
-            first_name: answer.firstName,
-            last_name: answer.lastName,
-            manager_id: answer.manager
-          },
-          function (err, res) {
-            if (err) throw err;
-          }
-        );
-        connection.query("INSERT INTO role SET ?",
-          {
-            title: answer.role
-          },
-          function (err, res) {
-            if (err) throw err;
-            
-            console.table(res)
-            console.log("Employee has successfully been added to the database!");
-            start();
-          }
-        );
-      });
-  }
+        {
+          first_name: answer.firstName,
+          last_name: answer.lastName,
+          role_id: role_id,
+          manager_id: manager_id
+        },
+        function (err, result) {
+          if (err) throw err;
 
-  //for loop to pull length of employees, and console log them as choices for each of these functions?
-function removeEmployee() {}
+          console.log("***** New employee added! *****");
+          start();
+        }
+      );
+    });
+}
 
-function updateRole() {}
+// INCOMPLETE - UPDATE NOT WORKING
+function updateRole() {
+    connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
+      if (err) throw err;
+  
+    var choiceArray = [];
+   
+    for (var i = 0; i < result.length; i++) {
+     var choices = result[i].first_name + " " + result[i].last_name;
+     
+     choiceArray.push(choices);
+    }
+    inquirer
+      .prompt({
+        name: "title",
+        type: "list",
+        message: "Which employee's role would you like to update?",
+        choices: choiceArray
+      })
+      .then(function(answer) {
+          inquirer.prompt({
+              name: "newRole",
+              type: "list",
+              message: "What is their new role?",
+              choices: [
+                "Junior Developer",
+                "Senior Developer",
+                "Salesperson",
+                "Head of Sales",
+                "Accountant",
+                "HR Representative"
+            ]
+        }).then(function(answer) {
+                connection.query("UPDATE employee SET role WHERE ?", [answer.newRole], function (err, res) {
+                    if (err) 
+                        throw err;
+             })
+            })
+        })
+    })
+        start();
+}
 
-function updateManager() {}
+function updateManager() {
+    connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
+      if (err) throw err;
+  
+    var choiceArray = [];
+   
+    for (var i = 0; i < result.length; i++) {
+     var choices = result[i].first_name + " " + result[i].last_name;
+     
+     choiceArray.push(choices);
+    }
+    inquirer
+      .prompt({
+        name: "title",
+        type: "list",
+        message: "Which employee's manager would you like to update?",
+        choices: choiceArray
+      })
+      .then(function(answer) {
+        inquirer.prompt({
+            name: "newManager",
+            type: "list",
+            message: "Who is their new manager?",
+            choices: [
+              "Andrew Kolander",
+              "Dan Marshall",
+              "None"
+            ]
+        }).then(function(answer) {
+                connection.query("UPDATE employee SET ? WHERE ?", [answer.newManager], function (err, res) {
+                    if (err) 
+                        throw err;
+             })
+            })
+        })
+    })
+        start();
+}

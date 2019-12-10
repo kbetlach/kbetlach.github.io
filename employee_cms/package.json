@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cfonts": "^2.4.5",
     "console.table": "^0.10.0",
     "inquirer": "^7.0.0",
     "mysql": "^2.17.1"
