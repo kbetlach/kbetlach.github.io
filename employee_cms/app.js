@@ -220,18 +220,17 @@ function updateRole() {
      choiceArray.push(choices);
     }
     inquirer
-      .prompt({
+      .prompt([
+        {
         name: "title",
         type: "list",
         message: "Which employee's role would you like to update?",
         choices: choiceArray
-      })
-      .then(function(answer) {
-          inquirer.prompt({
-              name: "newRole",
-              type: "list",
-              message: "What is their new role?",
-              choices: [
+      }, {
+        name: "newRole",
+        type: "list",
+        message: "What is their new role?",
+        choices: [
                 "Junior Developer",
                 "Senior Developer",
                 "Salesperson",
@@ -239,7 +238,8 @@ function updateRole() {
                 "Accountant",
                 "HR Representative"
             ]
-        }).then(function(answer) {
+      }
+    ]).then(function(answer) {
 
             var role_id;
             if (answer.newRole === "Junior Developer") {
@@ -261,9 +261,9 @@ function updateRole() {
                 role_id = 6;
             }
 
-                connection.query("UPDATE employee SET role_id WHERE ?", 
+                connection.query("UPDATE employee SET ? WHERE ?", 
                 {
-                role_id: answer.newRole
+                role_id: role_id
                 },
                 function (err, res) {
                     if (err) 
@@ -271,10 +271,11 @@ function updateRole() {
              })
             })
         })
-    })
         console.log("***** Employee's role updated. *****")
         start();
-}
+    }
+
+
 
 function updateManager() {
     connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
@@ -288,23 +289,23 @@ function updateManager() {
      choiceArray.push(choices);
     }
     inquirer
-      .prompt({
+      .prompt([
+        {
         name: "title",
         type: "list",
         message: "Which employee's manager would you like to update?",
         choices: choiceArray
-      })
-      .then(function(answer) {
-        inquirer.prompt({
-            name: "newManager",
-            type: "list",
-            message: "Who is their new manager?",
-            choices: [
+      }, {
+        name: "newManager",
+        type: "list",
+        message: "Who is their new manager?",
+        choices: [
               "Andrew Kolander",
               "Dan Marshall",
               "None"
             ]
-        }).then(function(answer) {
+      }
+        ]).then(function(answer) {
 
             var manager_id;
             if (answer.newManager === "Andrew Kolander") {
@@ -317,9 +318,9 @@ function updateManager() {
               manager_id = null;
             }
 
-            connection.query("UPDATE employee SET manager_id WHERE ?", 
+            connection.query("UPDATE employee SET ? WHERE ?", 
             {
-            manager_id: answer.newManager
+            manager_id: manager_id
             },
             function (err, res) {
                 if (err) 
@@ -327,7 +328,7 @@ function updateManager() {
          })
         })
     })
-})
     console.log("***** Employee's manager updated. *****")
     start();
 }
+
