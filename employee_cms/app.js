@@ -207,7 +207,7 @@ function addEmployee() {
     });
 }
 
-// INCOMPLETE - UPDATE NOT WORKING
+// INCOMPLETE - UPDATE FUNCTIONS NOT WORKING
 function updateRole() {
     connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
       if (err) throw err;
@@ -240,13 +240,39 @@ function updateRole() {
                 "HR Representative"
             ]
         }).then(function(answer) {
-                connection.query("UPDATE employee SET role WHERE ?", [answer.newRole], function (err, res) {
+
+            var role_id;
+            if (answer.newRole === "Junior Developer") {
+              role_id = 1;
+            }
+            else if (answer.newRole === "Senior Developer") {
+                role_id = 2;
+            }
+            else if (answer.newRole === "Salesperson") {
+                role_id = 3;
+            }
+            else if (answer.newRole === "Head of Sales") {
+                role_id = 4;
+            }
+            else if (answer.newRole === "Accountant") {
+                role_id = 5;
+            }
+            else if (answer.newRole === "HR Representative") {
+                role_id = 6;
+            }
+
+                connection.query("UPDATE employee SET role_id WHERE ?", 
+                {
+                role_id: answer.newRole
+                },
+                function (err, res) {
                     if (err) 
                         throw err;
              })
             })
         })
     })
+        console.log("***** Employee's role updated. *****")
         start();
 }
 
@@ -279,12 +305,29 @@ function updateManager() {
               "None"
             ]
         }).then(function(answer) {
-                connection.query("UPDATE employee SET ? WHERE ?", [answer.newManager], function (err, res) {
-                    if (err) 
-                        throw err;
-             })
-            })
+
+            var manager_id;
+            if (answer.newManager === "Andrew Kolander") {
+              manager_id = 1;
+            }
+            else if (answer.newManager === "Dan Marshall") {
+              manager_id = 6;
+            }
+            else if (answer.newManager === "None") {
+              manager_id = null;
+            }
+
+            connection.query("UPDATE employee SET manager_id WHERE ?", 
+            {
+            manager_id: answer.newManager
+            },
+            function (err, res) {
+                if (err) 
+                    throw err;
+         })
         })
     })
-        start();
+})
+    console.log("***** Employee's manager updated. *****")
+    start();
 }
