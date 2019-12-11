@@ -71,7 +71,7 @@ function start() {
 }
 
 function viewAll() {
-    connection.query("SELECT * FROM employee INNER JOIN roles ON employee.role_id = roles.id INNER JOIN department ON roles.department_id = department.id", function (err, res) {
+    connection.query("SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.department FROM ((employee INNER JOIN roles ON employee.role_id = roles.id) INNER JOIN department ON roles.department_id = department.id)", function (err, res) {
         if (err) 
             throw err;
         
@@ -88,7 +88,7 @@ function byDepartment() {
         choices: ["Engineering", "Sales", "Finance", "Human Resources",]
     }).then(function (answer) {
         if (answer.departmentChoice === "Engineering" || "Sales" || "Finance" || "Human Resources") {
-            connection.query("SELECT * FROM employee INNER JOIN roles ON employee.role_id = roles.id INNER JOIN department ON roles.department_id = department.id WHERE department.department = ?", [answer.departmentChoice], function (err, res) {
+            connection.query("SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.department FROM ((employee INNER JOIN roles ON employee.role_id = roles.id) INNER JOIN department ON roles.department_id = department.id) WHERE department = ?", [answer.departmentChoice], function (err, res) {
                 if (err) 
                     throw err;
                 
@@ -116,7 +116,7 @@ function byRole() {
         ]
     }).then(function (answer) {
         if (answer.role === "Junior Developer" || "Senior Developer" || "Salesperson" || "Head of Sales" || "Accountant" || "HR Representative") {
-            connection.query("SELECT * FROM employee INNER JOIN roles ON employee.role_id = roles.id WHERE title = ?", [answer.roleChoice], function (err, res) {
+            connection.query("SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.department FROM ((employee INNER JOIN roles ON employee.role_id = roles.id) INNER JOIN department ON roles.department_id = department.id) WHERE title = ?", [answer.roleChoice], function (err, res) {
                 if (err) 
                     throw err;
                 
@@ -222,7 +222,7 @@ function updateRole() {
     inquirer
       .prompt([
         {
-        name: "title",
+        name: "person",
         type: "list",
         message: "Which employee's role would you like to update?",
         choices: choiceArray
@@ -261,21 +261,21 @@ function updateRole() {
                 role_id = 6;
             }
 
-                connection.query("UPDATE employee SET ? WHERE ?", 
+                connection.query("UPDATE employee SET ? WHERE first_name = ?", [answer.person], 
                 {
                 role_id: role_id
                 },
                 function (err, res) {
                     if (err) 
                         throw err;
+
+                    console.log("***** Employee's role updated. *****")
+                    start();
              })
             })
         })
-        console.log("***** Employee's role updated. *****")
-        start();
+
     }
-
-
 
 function updateManager() {
     connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
@@ -325,10 +325,11 @@ function updateManager() {
             function (err, res) {
                 if (err) 
                     throw err;
+
+                    console.log("***** Employee's manager updated. *****")
+                    start();
          })
         })
     })
-    console.log("***** Employee's manager updated. *****")
-    start();
 }
 
