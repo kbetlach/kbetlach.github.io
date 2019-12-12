@@ -4,14 +4,14 @@ var table = require("console.table");
 var CFonts = require("cfonts");
 
 CFonts.say('Employee|Database', {
-  font: 'block',
-  align: 'center',
-  colors: ['system'],
-  background: 'transparent',
-  letterSpacing: 1,
-  lineHeight: 1,
-  space: true,
-  maxLength: '0',
+    font: 'block',
+    align: 'center',
+    colors: ['system'],
+    background: 'transparent',
+    letterSpacing: 1,
+    lineHeight: 1,
+    space: true,
+    maxLength: '0'
 });
 
 var connection = mysql.createConnection({
@@ -63,7 +63,7 @@ function start() {
                 break;
             case "Update Employee Manager": updateManager();
                 break;
-            default: 
+            default:
                 console.log("***** PLEASE COME AGAIN *****")
                 connection.end();
         }
@@ -75,6 +75,7 @@ function viewAll() {
         if (err) 
             throw err;
         
+
         console.table(res);
         start();
     });
@@ -157,179 +158,161 @@ function addEmployee() {
             message: "Who is the employee's manager?",
             choices: ["Andrew Kolander", "Dan Marshall", "None"]
         }
-    ])
-    .then(function (answer) {
+    ]).then(function (answer) {
         var role_id;
         if (answer.role === "Junior Developer") {
-          role_id = 1;
-        }
-        else if (answer.role === "Senior Developer") {
+            role_id = 1;
+        } else if (answer.role === "Senior Developer") {
             role_id = 2;
-        }
-        else if (answer.role === "Salesperson") {
+        } else if (answer.role === "Salesperson") {
             role_id = 3;
-        }
-        else if (answer.role === "Head of Sales") {
+        } else if (answer.role === "Head of Sales") {
             role_id = 4;
-        }
-        else if (answer.role === "Accountant") {
+        } else if (answer.role === "Accountant") {
             role_id = 5;
-        }
-        else if (answer.role === "HR Representative") {
+        } else if (answer.role === "HR Representative") {
             role_id = 6;
         }
 
         var manager_id;
         if (answer.manager === "Andrew Kolander") {
-          manager_id = 1;
+            manager_id = 1;
+        } else if (answer.manager === "Dan Marshall") {
+            manager_id = 6;
+        } else if (answer.manager === "None") {
+            manager_id = null;
         }
-        else if (answer.manager === "Dan Marshall") {
-          manager_id = 6;
-        }
-        else if (answer.manager === "None") {
-          manager_id = null;
-        }
-        
-        connection.query("INSERT INTO employee SET ?",
-        {
-          first_name: answer.firstName,
-          last_name: answer.lastName,
-          role_id: role_id,
-          manager_id: manager_id
-        },
-        function (err, result) {
-          if (err) throw err;
 
-          console.log("***** New employee added! *****");
-          start();
-        }
-      );
+        connection.query("INSERT INTO employee SET ?", {
+            first_name: answer.firstName,
+            last_name: answer.lastName,
+            role_id: role_id,
+            manager_id: manager_id
+        }, function (err, result) {
+            if (err) 
+                throw err;
+            
+
+            console.log("***** New employee added! *****");
+            start();
+        });
     });
 }
 
-// INCOMPLETE - UPDATE FUNCTIONS NOT WORKING
 function updateRole() {
-    connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
-      if (err) throw err;
-  
-    var choiceArray = [];
-   
-    for (var i = 0; i < result.length; i++) {
-     var choices = result[i].first_name + " " + result[i].last_name;
-     
-     choiceArray.push(choices);
-    }
-    inquirer
-      .prompt([
-        {
-        name: "person",
-        type: "list",
-        message: "Which employee's role would you like to update?",
-        choices: choiceArray
-      }, {
-        name: "newRole",
-        type: "list",
-        message: "What is their new role?",
-        choices: [
-                "Junior Developer",
-                "Senior Developer",
-                "Salesperson",
-                "Head of Sales",
-                "Accountant",
-                "HR Representative"
-            ]
-      }
-    ]).then(function(answer) {
+    connection.query("SELECT first_name, last_name FROM employee", function (err, result) {
+        if (err) 
+            throw err;
+        
+
+        var choiceArray = [];
+
+        for (var i = 0; i < result.length; i++) {
+            var choices = result[i].first_name + " " + result[i].last_name;
+
+            choiceArray.push(choices);
+        }
+        inquirer.prompt([
+            {
+                name: "person",
+                type: "list",
+                message: "Which employee's role would you like to update?",
+                choices: choiceArray
+            }, {
+                name: "newRole",
+                type: "list",
+                message: "What is their new role?",
+                choices: [
+                    "Junior Developer",
+                    "Senior Developer",
+                    "Salesperson",
+                    "Head of Sales",
+                    "Accountant",
+                    "HR Representative"
+                ]
+            }
+        ]).then(function (answer) {
 
             var role_id;
             if (answer.newRole === "Junior Developer") {
-              role_id = 1;
-            }
-            else if (answer.newRole === "Senior Developer") {
+                role_id = 1;
+            } else if (answer.newRole === "Senior Developer") {
                 role_id = 2;
-            }
-            else if (answer.newRole === "Salesperson") {
+            } else if (answer.newRole === "Salesperson") {
                 role_id = 3;
-            }
-            else if (answer.newRole === "Head of Sales") {
+            } else if (answer.newRole === "Head of Sales") {
                 role_id = 4;
-            }
-            else if (answer.newRole === "Accountant") {
+            } else if (answer.newRole === "Accountant") {
                 role_id = 5;
-            }
-            else if (answer.newRole === "HR Representative") {
+            } else if (answer.newRole === "HR Representative") {
                 role_id = 6;
             }
 
-                connection.query("UPDATE employee SET ? WHERE first_name = ?", [answer.person], 
-                {
-                role_id: role_id
-                },
-                function (err, res) {
-                    if (err) 
-                        throw err;
+            var first_name = answer.person.split(" ");
 
-                    console.log("***** Employee's role updated. *****")
-                    start();
-             })
-            })
-        })
-
-    }
-
-function updateManager() {
-    connection.query("SELECT first_name, last_name FROM employee", function(err, result) {
-      if (err) throw err;
-  
-    var choiceArray = [];
-   
-    for (var i = 0; i < result.length; i++) {
-     var choices = result[i].first_name + " " + result[i].last_name;
-     
-     choiceArray.push(choices);
-    }
-    inquirer
-      .prompt([
-        {
-        name: "title",
-        type: "list",
-        message: "Which employee's manager would you like to update?",
-        choices: choiceArray
-      }, {
-        name: "newManager",
-        type: "list",
-        message: "Who is their new manager?",
-        choices: [
-              "Andrew Kolander",
-              "Dan Marshall",
-              "None"
-            ]
-      }
-        ]).then(function(answer) {
-
-            var manager_id;
-            if (answer.newManager === "Andrew Kolander") {
-              manager_id = 1;
-            }
-            else if (answer.newManager === "Dan Marshall") {
-              manager_id = 6;
-            }
-            else if (answer.newManager === "None") {
-              manager_id = null;
-            }
-
-            connection.query("UPDATE employee SET ? WHERE ?", 
+            connection.query(`UPDATE employee SET role_id = ${role_id} WHERE first_name = '${first_name[0]}'`,
             {
-            manager_id: manager_id
-            },
-            function (err, res) {
+                role_id: role_id
+            }, function (err, res) {
                 if (err) 
                     throw err;
+                
 
-                    console.log("***** Employee's manager updated. *****")
-                    start();
-         })
+                console.log("***** Employee's role updated. *****")
+                start();
+            })
         })
     })
 }
 
+function updateManager() {
+    connection.query("SELECT first_name, last_name FROM employee", function (err, result) {
+        if (err) 
+            throw err;
+        
+
+        var choiceArray = [];
+
+        for (var i = 0; i < result.length; i++) {
+            var choices = result[i].first_name + " " + result[i].last_name;
+
+            choiceArray.push(choices);
+        }
+        inquirer.prompt([
+            {
+                name: "person",
+                type: "list",
+                message: "Which employee's manager would you like to update?",
+                choices: choiceArray
+            }, {
+                name: "newManager",
+                type: "list",
+                message: "Who is their new manager?",
+                choices: ["Andrew Kolander", "Dan Marshall", "None"]
+            }
+        ]).then(function (answer) {
+
+            var manager_id;
+            if (answer.newManager === "Andrew Kolander") {
+                manager_id = 1;
+            } else if (answer.newManager === "Dan Marshall") {
+                manager_id = 6;
+            } else if (answer.newManager === "None") {
+                manager_id = null;
+            }
+
+            var first_name = answer.person.split(" ");
+
+            connection.query(`UPDATE employee SET manager_id = ${manager_id} WHERE first_name = '${first_name[0]}'`, {
+                manager_id: manager_id
+            }, function (err, res) {
+                if (err) 
+                    throw err;
+                
+
+                console.log("***** Employee's manager updated. *****")
+                start();
+            })
+        })
+    })
+}
