@@ -10,13 +10,19 @@ Additionally, our schema was supposed to be made up of three separate tables con
 
 The app's database schema and seeds were created in the MySQL workbench, and the coding was done in VS Code using node.js and JavaScript.
 
-####Status
+####Demo
 
-The program is almost complete. As of now, the update features are not working, but the syntax is very close.
+Link to a video demoing the finished app:
+
+(https://drive.google.com/open?id=1FPVodPKm8VlCrUICxkv5-pIevFn3Js6r)
+
+#####Status
+
+The program is complete.
 
 A bonus was to create a function that removes employees from the database, but I didn't have enough time to implement this. In the future, I would like to revisit this and include the remove function.
 
-#####Sources and Inspiration
+######Sources and Inspiration
 
 I found this to be quite challenging, but really satisfying to work through. I gained a deeper understanding and appreciation of CRUD and joining multiple tables in MySQL.
 
