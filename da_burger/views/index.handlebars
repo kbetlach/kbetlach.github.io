@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <h1>Eat-Da-Burger!</h1>
+  <img src="../assets/img/burger.png" alt="Burger" id="burger">
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <li>
+        {{#each burger}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </li>
+    </div>
+    <div class="col-md-6">
+      <li>
+        {{#each burger}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </li>
+    </div>
+  </div>
+</div>
+
+<form>
+    <textarea id="burger_name"></textarea>
+    <button type="submit">Submit</button>
+</form>

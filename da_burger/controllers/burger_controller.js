@@ -5,13 +5,13 @@ var router = express.Router();
 var Burger = require("../models/burger_model.js");
 
 router.get("/", function(req, res) {
-    Burger.findAll(function(data) {
+    Burger.findAll({function(data) {
       var hbsObject = {
         burger: data
       };
       console.log(hbsObject);
       res.render("index", hbsObject);
-    });
+    }});
   });
 
   router.post("/api/burger", function(req, res) {
