@@ -2,10 +2,10 @@ var express = require("express");
 
 var router = express.Router();
 
-var burger = require("../models/burgers.js");
+var Burger = require("../models/burger_model.js");
 
 router.get("/", function(req, res) {
-    burgers.all(function(data) {
+    Burger.findAll(function(data) {
       var hbsObject = {
         burger: data
       };
@@ -14,10 +14,23 @@ router.get("/", function(req, res) {
     });
   });
 
-//router.post
+  router.post("/api/burger", function(req, res) {
+    Burger.create({
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
+    }, 
+      function(result) {
 
-//router.put
-
-//router.delete
-
-module.exports = router;
+     return res.json(result)
+  });
+})
+  
+  router.delete("/api/burger/:id", function(req, res) {
+    Burger.destroy({
+      where : {
+        id: req.params.id
+      }
+    })
+  });
+  
+  module.exports = router;
