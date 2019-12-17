@@ -1,33 +1,32 @@
 $(function() {
-    $(".change-eat").on("click", function(event) {
+    $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
-      var newEat = $(this).data("neweat");
+      var newDevoured = $(this).data("newdevoured");
   
-      var newEatState = {
-        devoured : newEat
+      var newDevouredState = {
+        devoured: newDevoured
       };
   
-      $.ajax("/api/burger/" + id, {
+      $.ajax("/api/burgers/" + id, {
         type: "PUT",
-        data: newEatState
+        data: newDevouredState
       }).then(
         function() {
-          console.log("changed eat to", newEat);
-          // Reload the page to get the updated list
+          console.log("changed eat to", newDevoured);
+      
           location.reload();
         }
       );
     });
   
-    $(".submit-button").on("click", function(event) {
+    $(".create-form").on("submit", function(event) {
       event.preventDefault();
   
       var newBurger = {
-        burger_name: $("#burger_name").val().trim(),
-        devoured: 0
+        burger_name: $("#ca").val().trim(),
       };
   
-      $.ajax("/api/burger", {
+      $.ajax("/api/burgers/", {
         type: "POST",
         data: newBurger
       }).then(
@@ -41,7 +40,7 @@ $(function() {
     $(".delete-burger").on("click", function(event) {
       var id = $(this).data("id");
   
-      $.ajax("/api/burger/" + id, {
+      $.ajax("/api/burgers/" + id, {
         type: "DELETE"
       }).then(
         function() {

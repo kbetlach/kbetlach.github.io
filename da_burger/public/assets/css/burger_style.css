@@ -1,0 +1,14 @@
+.container {
+    width: 960px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#burger {
+    width: 400px;
+    height: 400px;
+    margin-left: 425px;
+}

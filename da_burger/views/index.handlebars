@@ -1,32 +1,37 @@
-<div class="jumbotron">
-  <h1>Eat-Da-Burger!</h1>
-  <img src="../assets/img/burger.png" alt="Burger" id="burger">
-</div>
-
-<div class="container">
   <div class="row">
     <div class="col-md-6">
-      <li>
-        {{#each burger}}
+        <h2>Burgers Ready for Devouring</h2>
+      <ul>
+        {{#each burgers}}
         {{#unless devoured}}
         {{> burgers/burger-block devoured=true}}
         {{/unless}}
         {{/each}}
-      </li>
+      </ul>
     </div>
+    
     <div class="col-md-6">
-      <li>
-        {{#each burger}}
+        <h2>Devoured Burgers</h2>
+      <ul>
+        {{#each burgers}}
         {{#if devoured}}
         {{> burgers/burger-block devoured=false}}
         {{/if}}
         {{/each}}
-      </li>
+      </ul>
     </div>
   </div>
 </div>
 
-<form>
-    <textarea id="burger_name"></textarea>
-    <button type="submit">Submit</button>
-</form>
+<div class="row">
+    <div class="col-md-12">
+
+        <form class="create-form">
+                <label for="ca">Burger Name:</label>
+                <input type="text" id="ca" name="name">
+            </div>
+
+          <button class="submit" type="submit">Place Your Order</button>
+        </form>
+    </div>
+</div>
