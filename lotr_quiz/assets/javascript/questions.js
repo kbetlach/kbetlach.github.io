@@ -1,4 +1,4 @@
-var myQuestions = [
+var questions = [
     {
       question: "What is the name of the kingdom that Aragorn has a claim for?",
       answers: ["The Shire", "Rohan", "Gondor", "Isengard"],
