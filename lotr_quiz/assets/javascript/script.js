@@ -45,39 +45,4 @@ function nextQuestion() {
   option3.innerHTML = item3;
   option4.innerHTML = item4;
 
-  for (var i = 0; i < 4; i++){
-    var questionButton = $("<button>");
-    questionButton.addClass("answers");
-    questionButton.attr("data-answer",myQuestions[myQuestionsIndex].answers[i]);
-    questionButton.text(myQuestions[myQuestionsIndex].answers[i]);
-    questionButton.attr("value", myQuestions[myQuestionsIndex].correctAnswer)
-    questionButton.css("background-color", "slategrey");
-    questionButton.css("color", "white");
-    questionButton.appendTo(quiz);
-  }
-  console.log(myQuestions[myQuestionsIndex].correctAnswer)
 }
-
-$(document).on("click", ".answers",  function(){
-
-  if (myQuestionsIndex >= myQuestions.length - 1) {
-    score++;
-    alert("End of quiz! Your final score is: " + (score + secondsLeft));
-    console.log("end of quiz");
-    console.log(score);
-    return;
-  } else if ($(this).attr("data-answer") === myQuestions[myQuestionsIndex].correctAnswer){
-    console.log("rightAnswer");
-    score++;
-    myQuestionsIndex++;
-    alert("Correct!");
-  } else {
-    console.log("wrongAnswer");
-      secondsLeft-=15;
-      myQuestionsIndex++;
-      alert("Wrong!");
-  }
-  
-  nextQuestion();
-
-})
