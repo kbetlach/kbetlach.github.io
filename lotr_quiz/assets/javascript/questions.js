@@ -1,27 +1,27 @@
 var questions = [
     {
-      question: "What is the name of the kingdom that Aragorn has a claim for?",
-      answers: ["The Shire", "Rohan", "Gondor", "Isengard"],
-      correctAnswer: "Gondor"
+      title: "What is the name of the kingdom that Aragorn has a claim for?",
+      choices: ["The Shire", "Rohan", "Gondor", "Isengard"],
+      answer: "Gondor"
     },
     {
-      question: "What is the name of Frodo's sword?",
-      answers: ["Stink", "Sting", "Samwise", "Spider Slayer"],
-      correctAnswer: "Sting"
+      title: "What is the name of Frodo's sword?",
+      choices: ["Stink", "Sting", "Samwise", "Spider Slayer"],
+      answer: "Sting"
     },
     {
-      question: "Which animal is the land of Rohan known for?",
-      answers: ["Horses", "Goats", "Sheep", "Squirrels"],
-      correctAnswer: "Horses"
+      title: "Which animal is the land of Rohan known for?",
+      choices: ["Horses", "Goats", "Sheep", "Squirrels"],
+      answer: "Horses"
     },
     {
-      question: "What is the name of the wizard who wears a gray robe and hat?",
-      answers: ["Saruman", "Radagast", "Sauron", "Gandalf"],
-      correctAnswer: "Gandalf"
+      title: "What is the name of the wizard who wears a gray robe and hat?",
+      choices: ["Saruman", "Radagast", "Sauron", "Gandalf"],
+      answer: "Gandalf"
     },
     {
-      question: "Which people of Middle-Earth are immortal?",
-      answers: ["Hobbits", "Elves", "Dwarves", "Humans"],
-      correctAnswer: "Elves"
+      title: "Which people of Middle-Earth are immortal?",
+      choices: ["Hobbits", "Elves", "Dwarves", "Humans"],
+      answer: "Elves"
     }
   ];
