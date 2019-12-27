@@ -3,14 +3,15 @@ var time = document.querySelector(".time");
 var start = document.getElementById("start");
 var container = document.querySelector(".container");
 var directions = document.querySelector(".directions");
-var answerButton = document.querySelectorAll(".btn");
-var answer1 = document.querySelector("#ques1");
-var answer2 = document.querySelector("#ques2");
-var answer3 = document.querySelector("#ques3");
-var answer4 = document.querySelector("#ques4");
+var quizQuestions = document.querySelector("#quizQuestions");
+var quizChoices = document.querySelector("#quizChoices");
+var answer1 = document.querySelector("#1");
+var answer2 = document.querySelector("#2");
+var answer3 = document.querySelector("#3");
+var answer4 = document.querySelector("#4");
 var score = 0;
 var secondsLeft = 75;
-var questionNumber = 0;
+var currentQuestion = 0;
 
 function timer() {
   var timerInterval = setInterval(function() {
@@ -31,16 +32,11 @@ function startQuiz() {
     event.preventDefault();
     timer();
 
-    var quizQuestion = questions[questionNumber].title;
-    var listItem1 = questions[questionNumber].choices[0];
-    var listItem2 = questions[questionNumber].choices[1];
-    var listItem3 = questions[questionNumber].choices[2];
-    var listItem4 = questions[questionNumber].choices[3];
+    quizQuestion.innerHTML = questions[currentQuestion].title
 
-    question.innerHTML = quizQuestion;
-    answer1.innerHTML = listItem1;
-    answer2.innerHTML = listItem2;
-    answer3.innerHTML = listItem3;
-    answer4.innerHTML = listItem4;
-
-}
+    for (i = 0; i < 4; i++) {
+      var buttons = document.createElement("button");
+      buttons.innerHTML = questions[currentQuestion].choices[i];
+      quizChoices.children[i].append(buttons);
+    }
+  }
