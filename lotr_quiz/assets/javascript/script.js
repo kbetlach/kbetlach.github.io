@@ -29,14 +29,14 @@ function timer() {
 }
 
 function startQuiz() {
-    event.preventDefault();
-    timer();
+  timer()
+ 
+  quizQuestions.innerHTML = questions[currentQuestion].title
 
-    quizQuestion.innerHTML = questions[currentQuestion].title
-
-    for (i = 0; i < 4; i++) {
-      var buttons = document.createElement("button");
-      buttons.innerHTML = questions[currentQuestion].choices[i];
-      quizChoices.children[i].append(buttons);
-    }
+  for (i = 0; i < 4; i++) {
+    var buttons = document.createElement("button");
+    buttons.innerHTML = questions[currentQuestion].choices[i];
+    quizChoices.children[i].append(buttons);
+    buttons.className = "btn btn-outline-dark btn-lg btn-block";
   }
+}

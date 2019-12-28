@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <header>
         <nav class="nav">
             <h1>Lord of the Rings Quiz</h1>
@@ -20,46 +21,46 @@
 
 <br/>
 
-<div class="container">
+    <div class="container">
 
-    <div class="directions">
+        <div class="directions">
 
-    <div class="row">
-        <div class="col-md-12">
-            Test your Middle Earth knowledge with this quiz!
+            <div class="row">
+                <div class="col-md-12">
+                    Test your Middle Earth knowledge with this quiz!
+                </div>
+            </div>
+        
+        <br/>
+        
+            <div class="row">
+                <div class="col-md-12">
+                    Think you've got what it takes? Press the start button below to begin the quiz. Be warned! If you answer a question
+                    incorrectly, you will be penalized 10 seconds. You start with 75 seconds, and the quicker you answer correctly, the higher your score!
+                    Your final score will be the amount of questions answered correctly plus time remaining.
+                </div>
+            </div>
+
+            <br />
+
+            <div id="startButton">
+                <button type="button" id="start" class="btn btn-outline-dark btn-lg btn-block" onclick=startQuiz()>Start!</button>
+            </div>
+            
         </div>
+        
+      <div id="quizQuestions"></div>
+
+      <div id="quizChoices">
+        <div class="option" id="1"></div>
+        <div class="option" id="2"></div>
+        <div class="option" id="3"></div>
+        <div class="option" id="4"></div>
+      </div>
+
+      <div id=result></div>
+
     </div>
-
-<br/>
-
-    <div class="row">
-        <div class="col-md-12">
-            Think you've got what it takes? Press the start button below to begin the quiz. Be warned! If you answer a question
-            incorrectly, you will be penalized 10 seconds. You start with 75 seconds, and the quicker you answer correctly, the higher your score!
-            Your final score will be the amount of questions answered correctly plus time remaining.
-        </div>
-    </div>
-
-<br/>
-
-    <div class="row">
-        <div class="col-md-12">
-            <button id="start" onclick=startQuiz() >Start!</button>
-            <button id="scores">View Highscores</button>
-        </div>
-    </div>
-</div>
-    
-<div id="quizQuestion"></div>
-
-<div id="quizChoices">
-    <div class="option" id="1"></div>
-    <div class="option" id="2"></div>
-    <div class="option" id="3"></div>
-    <div class="option" id="4"></div>
-</div>
-
-</div>
 
 <script src="assets/javascript/questions.js"></script>
 <script src="assets/javascript/script.js"></script>

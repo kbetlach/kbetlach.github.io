@@ -13,13 +13,6 @@ body {
     margin-left: 800px;    
 }
 
-#scores {
-    margin-left: 675px;
-    background-color: darkslategray;
-    color: white;
-    padding: 5px;
-}
-
 .nav {
     background-color: darkslategray;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -31,8 +24,4 @@ body {
     background-color: darkslategray;
     color: white;
     padding: 5px;
-}
-
-.remove {
-    display: none;
 }
