@@ -11,9 +11,13 @@ body {
     background: url("../images/leaves-pattern.png");
 }
 
+.jumbotron {
+    background-color: lightgray;
+    border: 1px solid;
+}
+
 .container {
     width: 900px;
-    border: 1px solid;
     padding: 15px;
     height: 350px;
     margin-top: 50px;
