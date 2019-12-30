@@ -4,66 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lord of the Rings Quiz</title>
+    <title>The Quiz of the Rings</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+  
+  <header>
+    <nav class="nav">
+        <h1>The Lord of the Rings Quiz</h1>
+        <div class="time"></div>
+    </nav>
+</header>
 
-    <header>
-        <nav class="nav">
-            <h1>Lord of the Rings Quiz</h1>
-            <div class="time">Remaining time will be displayed here!</div>
-        </nav>
-    </header>
+  <div class="container">
 
-<br/>
+    <div class="directions">
 
-    <div class="container">
-
-        <div class="directions">
-
-            <div class="row">
-                <div class="col-md-12">
-                    Test your Middle Earth knowledge with this quiz!
-                </div>
-            </div>
-        
-        <br/>
-        
-            <div class="row">
-                <div class="col-md-12">
-                    Think you've got what it takes? Press the start button below to begin the quiz. Be warned! If you answer a question
-                    incorrectly, you will be penalized 10 seconds. You start with 75 seconds, and the quicker you answer correctly, the higher your score!
-                    Your final score will be the amount of questions answered correctly plus time remaining.
-                </div>
-            </div>
-
-            <br />
-
-            <div id="startButton">
-                <button type="button" id="start" class="btn btn-outline-dark btn-lg btn-block" onclick=startQuiz()>Start!</button>
-            </div>
-            
-        </div>
-        
-      <div id="quizQuestions"></div>
-
-      <div id="quizChoices">
-        <div class="option" id="1"></div>
-        <div class="option" id="2"></div>
-        <div class="option" id="3"></div>
-        <div class="option" id="4"></div>
+      <div class="row">
+          <div class="col-md-12">
+              Test your Middle Earth knowledge with this quiz!
+          </div>
+      </div>
+  
+  <br/>
+  
+      <div class="row">
+          <div class="col-md-12">
+              Think you've got what it takes? Press the start button below to begin the quiz. Be warned! If you answer a question
+              incorrectly, you will be penalized 10 seconds. You start with 75 seconds, and the quicker you answer correctly, the higher your score!
+              Your final score will be the amount of questions answered correctly plus time remaining.
+          </div>
       </div>
 
-      <div id=result></div>
+    </div> <!--Directions-->
 
+    <div id="quizQuestions"></div>
+
+    <br>
+
+    <div id="quizChoices">
+      <div class="option" id="A"></div>
+      <div class="option" id="B"></div>
+      <div class="option" id="C"></div>
+      <div class="option" id="D"></div>
     </div>
 
-<script src="assets/javascript/questions.js"></script>
-<script src="assets/javascript/script.js"></script>
+    <div id=result></div>
+
+    <br>
+
+    <div id="startButton">
+      <button type="button" id="start" class="btn btn-outline-dark btn-lg btn-block">Start Quiz</button>
+    </div>
+
+  </div> <!--Container-->
+ 
+  <script src="assets/javascript/questions.js"></script>
+  <script src="assets/javascript/script.js"></script>
 
 </body>
+
 </html>

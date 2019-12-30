@@ -1,36 +1,38 @@
-var questionIndex = 0;
-var time = document.querySelector(".time");
-var start = document.getElementById("start");
-var container = document.querySelector(".container");
+var startButton = document.querySelector("#start");
+var startButtonDiv = document.querySelector("#startButton")
 var directions = document.querySelector(".directions");
+var countdown = document.querySelector(".time");
 var quizQuestions = document.querySelector("#quizQuestions");
 var quizChoices = document.querySelector("#quizChoices");
-var answer1 = document.querySelector("#1");
-var answer2 = document.querySelector("#2");
-var answer3 = document.querySelector("#3");
-var answer4 = document.querySelector("#4");
-var score = 0;
-var secondsLeft = 75;
-var currentQuestion = 0;
+var selectionA = document.querySelector("#A")
+var selectionB = document.querySelector("#B")
+var selectionC = document.querySelector("#C")
+var selectionD = document.querySelector("#D")
+var resultDiv = document.querySelector("#result")
+var buttonsEl = document.querySelector(".btn")
+var isCorrect = true
+var userScore = 0
+var currentQuestion = 0
+var secondsLeft = 91
+
+startButton.addEventListener("click", startQuiz);
 
 function timer() {
-  var timerInterval = setInterval(function() {
+  directions.style.display = "none";
+  secondLeft = 90
+  userScore = 0
+  currentQuestion = 0
+  interval = setInterval(function () {
     secondsLeft--;
-    time.textContent = secondsLeft + " seconds left!";
-
-    directions.style.display = "none";
-  
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      alert("BZZZZZZZZT! You're out of time!");
-    }
-
+    countdown.textContent = secondsLeft
   }, 1000);
 }
 
 function startQuiz() {
   timer()
- 
+  startButtonDiv.innerHTML = ""
+  resultDiv.innerHTML = ""
+
   quizQuestions.innerHTML = questions[currentQuestion].title
 
   for (i = 0; i < 4; i++) {
@@ -39,4 +41,88 @@ function startQuiz() {
     quizChoices.children[i].append(buttons);
     buttons.className = "btn btn-outline-dark btn-lg btn-block";
   }
+}
+
+selectionA.addEventListener("click", function () {
+  if (questions[currentQuestion].choices[0] === questions[currentQuestion].answer) {
+    isCorrect = true;
+    result();
+  }
+  else {
+    isCorrect = false;
+    result();
+  }
+})
+
+selectionB.addEventListener("click", function () {
+  if (questions[currentQuestion].choices[1] === questions[currentQuestion].answer) {
+    isCorrect = true;
+    result();
+  }
+  else {
+    isCorrect = false;
+    result();
+  }
+})
+
+selectionC.addEventListener("click", function () {
+  if (questions[currentQuestion].choices[2] === questions[currentQuestion].answer) {
+    isCorrect = true;
+    result();
+  }
+  else {
+    isCorrect = false;
+    result();
+  }
+})
+
+selectionD.addEventListener("click", function () {
+  if (questions[currentQuestion].choices[3] === questions[currentQuestion].answer) {
+    isCorrect = true;
+    result();
+  }
+  else {
+    isCorrect = false;
+    result();
+  }
+})
+
+function result() {
+  if (isCorrect === true) {
+    userScore = userScore + 10;
+    resultDiv.innerHTML = "<hr>" + "Correct!";
+    increaseQuestion();
+  }
+  else {
+    secondsLeft -= 10;
+    resultDiv.innerHTML = "<hr>" + "Incorrect!";;
+    increaseQuestion();
+  }
+}
+
+function increaseQuestion() {
+  currentQuestion++;
+
+  if (currentQuestion === 6 || countdown < 0) {
+    clearInterval(interval)
+    quizQuestions.innerHTML = "You finished with " + userScore + " points!" + "<br>"
+    selectionA.style.display = "none";
+    selectionB.style.display = "none";
+    selectionC.style.display = "none";
+    selectionD.style.display = "none";
+    resultDiv.istyle.display = "none";
+    countdown.istyle.display = "none";
+  }
+  else {
+    nextQuestion();
+  }
+}
+
+function nextQuestion() {
+  quizQuestions.innerHTML = questions[currentQuestion].title;
+
+  selectionA.childNodes[0].innerHTML = questions[currentQuestion].choices[0];
+  selectionB.childNodes[0].innerHTML = questions[currentQuestion].choices[1];
+  selectionC.childNodes[0].innerHTML = questions[currentQuestion].choices[2];
+  selectionD.childNodes[0].innerHTML = questions[currentQuestion].choices[3];
 }

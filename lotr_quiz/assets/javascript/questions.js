@@ -23,5 +23,10 @@ var questions = [
       title: "Which people of Middle-Earth are immortal?",
       choices: ["Hobbits", "Elves", "Dwarves", "Humans"],
       answer: "Elves"
+    },
+    {
+      title: "What can you boil, mash, or stick in a stew?",
+      choices: ["TO-MAY-TOES!", "A BRACE OF CONEYS!", "PO-TAY-TOES!", "BUTT-ER-NUT SQUASH!"],
+      answer: "PO-TAY-TOES!"
     }
   ];
