@@ -10,16 +10,15 @@ var selectionC = document.querySelector("#C")
 var selectionD = document.querySelector("#D")
 var resultDiv = document.querySelector("#result")
 var buttonsEl = document.querySelector(".btn")
-var isCorrect = true
 var userScore = 0
 var currentQuestion = 0
-var secondsLeft = 91
+var secondsLeft = 75
 
 startButton.addEventListener("click", startQuiz);
 
 function timer() {
   directions.style.display = "none";
-  secondLeft = 90
+  secondLeft = 75
   userScore = 0
   currentQuestion = 0
   interval = setInterval(function () {
@@ -30,8 +29,6 @@ function timer() {
 
 function startQuiz() {
   timer()
-  startButtonDiv.innerHTML = ""
-  resultDiv.innerHTML = ""
 
   quizQuestions.innerHTML = questions[currentQuestion].title
 
@@ -89,7 +86,7 @@ selectionD.addEventListener("click", function () {
 
 function result() {
   if (isCorrect === true) {
-    userScore = userScore + 10;
+    userScore += 1;
     resultDiv.innerHTML = "<hr>" + "Correct!";
     increaseQuestion();
   }
@@ -102,16 +99,17 @@ function result() {
 
 function increaseQuestion() {
   currentQuestion++;
+  var finalScore = userScore + secondsLeft;
 
   if (currentQuestion === 6 || countdown < 0) {
     clearInterval(interval)
-    quizQuestions.innerHTML = "You finished with " + userScore + " points!" + "<br>"
+    quizQuestions.innerHTML = "You finished with " + finalScore + " points!" + "<br>"
     selectionA.style.display = "none";
     selectionB.style.display = "none";
     selectionC.style.display = "none";
     selectionD.style.display = "none";
-    resultDiv.istyle.display = "none";
-    countdown.istyle.display = "none";
+    resultDiv.style.display = "none";
+    countdown.style.display = "none";
   }
   else {
     nextQuestion();

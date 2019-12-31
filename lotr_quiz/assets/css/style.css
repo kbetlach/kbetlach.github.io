@@ -1,12 +1,16 @@
 body {
-    background: url("../images/organic-tiles.png");
+    background: url("../images/middle_earth.png");
 }
 
 .container {
-    background-color: white;
+    font-family: 'Baskervville', serif;
+    font-size: 20px;
+    border-radius: 25px;
+    background-color: whitesmoke;
     width: 900px;
     border: 1px solid;
-    padding: 10px;
+    padding: 15px;
+    margin-top: 100px;
 }
 
 .time {
@@ -24,4 +28,13 @@ body {
     background-color: darkslategray;
     color: white;
     padding: 5px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+}
+
+#quizQuestions {
+    font-size: 26px;
+    font-weight: bold;
 }
