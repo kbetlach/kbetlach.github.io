@@ -1,10 +1,10 @@
-# Homework04: Code Quiz
+# The Lord of the Rings Quiz
 
 ##Introduction
 
-Homework04 asked us to create a code quiz that provided the user a timed quiz around five questions long. The timer is set to 75 seconds, and if the user answers a question incorrectly, 15 seconds gets deducted from their remaining time. Their final score at the end of the five questions is the amount of questions they answered correctly multiplied by their remaining time. So the quicker they answer correctly, the more points they get at the end.
+As part of the JavaScript curriculum, we were asked to create a program that provides the user a timed quiz around five questions long. There is to be a timer counting down that ends the quiz if the user isn't finished when it hits 0, and time is deducted for every wrong answer. The user should then be able to save their scores into local storage, and view all scores saved into the client.
 
-We were then tasked with saving user scores in local storage, and being able to display high scores after clicking a button named the same thing.
+For my version, I chose to theme it after Lord of the Rings, something I'm a huge fan of. My quiz is 6 seconds long, with the timer starting at 75 seconds. For every incorrect answer, 10 seconds gets deducted. Final score is remaining time plus one point for every question answered correctly. So the faster you go the higher the score!
 
 ###Technologies
 
@@ -14,40 +14,29 @@ The quiz was created in VS Code using html, css, Bootstrap and JavaScript.
 
 Nothing too fancy! Simply open it up with your favorite web browser to view it! 
 
-It can be found here: (https://kbetlach.github.io/homework04/)
+It can be found here: (https://kbetlach.github.io/lotr_quiz/)
 
 #####Status
 
-The program is incomplete. The user will be able to start the quiz, and cycle through the questions, and the program knows when a question was answered correctly or incorrectly. Unfortunately, I didn't have the time to style it as nicely as I wanted, and play with the media queries for smaller screens.
-
-I didn't have time to code in saving scores to local storage or making the view highscores button functional. I simply ran out of time before it was due. I plan to revisit this and complete it in a way that I am happy with.
+The program is mostly complete. The quiz is 100% functional, but for now the highscore / local storage feature is not active. I intend to return to this and complete it at a later date.
 
 ######Sources and Inspiration
 
-I found this assignment to be difficult. Chris and all the TAs helped me at various points by helping me revise code, or at least give me ideas to try on my own. Big thanks to them!
+I found this assignment to be difficult when it was first given. Chris and all the TAs helped me at various points by helping me revise code, or at least give me ideas to try on my own. Big thanks to them!
 
-I'm pretty satisfied with what I was able to get through, but wish I could have completed it in full. I am most proud of the timer I was able to create.
+Upon revisiting this a few months later and having a better understanding of JavaScript, I was able to tighten it up and reformat code, leaving it in a much more complete state than the first time around.
 
-function startQuiz() {
-  event.preventDefault();
-  var timerInterval = setInterval(function() {
+It was fun to learn about timers and setting intervals for this assignment. That was probably my favorite part to play around with. This is my timer function:
+
+"function timer() {
+  directions.style.display = "none";
+  secondLeft = 75
+  userScore = 0
+  currentQuestion = 0
+  interval = setInterval(function () {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left!";
-
-    directionsEl.style.display = "none";
-  
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      alert("BZZZZZZZZT! You're out of time!");
-    }
-
+    countdown.textContent = secondsLeft
   }, 1000);
-  
-  console.log(myQuestions[myQuestionsIndex])
-  nextQuestion();
-}
+}"
 
-All in this one function, the quiz starts, the timer begins counting down, the first question appears, and the directions on the home screen disappears, and alerts the user when time has run out. Not too bad for one function!
-
-
-
+The timer is then called within the function that starts the quiz, so every time the quiz starts, the user's score and the countdown is reset. Pretty fun to mess around with!
