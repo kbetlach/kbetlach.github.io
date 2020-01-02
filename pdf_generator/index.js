@@ -3,6 +3,7 @@ const fs = require("fs");
 const axios = require("axios");
 const util = require("util");
 const pdf = require('html-pdf');
+const writeFileAsync = util.promisify(fs.writeFile);
 
 function promptUser() { 
   return inquirer.prompt([
@@ -21,15 +22,12 @@ function promptUser() {
           message: "What is your favorite color?:",
           name: "color"
         },
-  ])
-  .then(function({ name, github, color }) {
-    const queryURL = `https://api.github.com/users/${github}`;
-    
-    axios.get(queryURL)
-      .then(function(response) {
-      fs.writeFile("./index.html",
+  ]);
 
-  `<!DOCTYPE html>
+}
+  function generateHTML(answers, response) {
+    return`
+    <!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -55,12 +53,12 @@ function promptUser() {
 <div class="container" style="width: 960px;">
 
         <header style="text-align: center; font-size: 40px;">
-                GitHub Snapshot for ${name}
+                GitHub Snapshot for ${answers.name}
             </header>
 
 <br />
 
-    <div class="jumbotron jumbotron-fluid;" style="margin: 0 auto; background-color: ${color};">
+    <div class="jumbotron jumbotron-fluid;" style="margin: 0 auto; background-color: ${answers.color};">
 
         <div class="row">
             <div class="col-4"></div>
@@ -76,7 +74,7 @@ function promptUser() {
 
         <div class="row">
             <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fas fa-location-arrow"></i><a href="https://google.com/maps/search/${response.data.location}"> ${response.data.location}</a></div>
-            <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fab fa-github"></i><a href="https://github.com/${github}"> GitHub</a></div>
+            <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fab fa-github"></i><a href="https://github.com/${answers.github}"> GitHub</a></div>
             <div class="col-4" style="text-align: center; font-size: 22px;"><i class="fas fa-blog"></i><a href="${response.data.blog}"> Blog</a></div>
         </div>
 
@@ -89,17 +87,17 @@ function promptUser() {
 <br />
 
         <div class="row">
-            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Public Repositories: ${response.data.public_repos}</div>
+            <div class="col-4 card" style="background-color: ${answers.color}; font-size: 24px; text-align: center; padding: 10px;">Public Repositories: ${response.data.public_repos}</div>
             <div class="col-4"></div>
-            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">GitHub Stars: ${response.data.public_gists}</div>
+            <div class="col-4 card" style="background-color: ${answers.color}; font-size: 24px; text-align: center; padding: 10px;">GitHub Stars: ${response.data.public_gists}</div>
         </div>
 
 <br />
 
         <div class="row">
-            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Followers: ${response.data.followers}</div>
+            <div class="col-4 card" style="background-color: ${answers.color}; font-size: 24px; text-align: center; padding: 10px;">Followers: ${response.data.followers}</div>
             <div class="col-4"></div>
-            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Following: ${response.data.following}</div>
+            <div class="col-4 card" style="background-color: ${answers.color}; font-size: 24px; text-align: center; padding: 10px;">Following: ${response.data.following}</div>
         </div>
 
 <br />
@@ -107,37 +105,33 @@ function promptUser() {
     </div>
     </div>
   </body>
-  </html>`,
+  </html>`
+      }
 
-  (err) => {
-    if (err)
-        throw err;
-
-        console.log("Successfully created an html file!");      
-
-      })
-    })
-  })
-}
-
-async function init() {
+  async function init() {
+ 
+    try {
+      const answers = await promptUser();
+      const response = await axios.get("https://api.github.com/users/" + answers.github);
+ 
+      const html = generateHTML(answers, response);
   
-  try {
-    const answers = await promptUser();
-    
-    var options = {
-        format: 'Letter',
-        height: "17500px",
-        width: "1750px",  
-   }
-
-    await pdf.create(fs.readFileSync('./index.html', 'utf8'), options).toFile('./profile.pdf', function(err, res) {
-      if (err) return console.log(err);
-      console.log(res);
-    });
+      await writeFileAsync("index.html", html);
+  
+      var readHtml = fs.readFileSync('index.html', 'utf8');
+      var options = { format: 'Letter',
+                        height:"970px",
+                      width: "970px"};
+  
+      pdf.create(readHtml, options).toFile('profile.pdf', function (err, res) {
+        if (err) return console.log(err);
+        console.log(res);
+      });
+  
+      console.log("Successfully wrote to index.html");
+    } catch (err) {
+      console.log(err);
+    }
   }
-  finally{
-  }
-}
-
+  
   init();
