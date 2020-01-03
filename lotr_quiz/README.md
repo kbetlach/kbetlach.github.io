@@ -6,6 +6,8 @@ As part of the JavaScript curriculum, we were asked to create a program that pro
 
 For my version, I chose to theme it after Lord of the Rings, something I'm a huge fan of. My quiz is 6 seconds long, with the timer starting at 75 seconds. For every incorrect answer, 10 seconds gets deducted. Final score is remaining time plus one point for every question answered correctly. So the faster you go the higher the score!
 
+<img width="1430" alt="quiz" src="https://user-images.githubusercontent.com/53587397/71748420-18f55900-2e38-11ea-9469-223240952381.png">
+
 ###Technologies
 
 The quiz was created in VS Code using html, css, Bootstrap and JavaScript. 
@@ -28,15 +30,7 @@ Upon revisiting this a few months later and having a better understanding of Jav
 
 It was fun to learn about timers and setting intervals for this assignment. That was probably my favorite part to play around with. This is my timer function:
 
-"function timer() {
-  directions.style.display = "none";
-  secondLeft = 75
-  userScore = 0
-  currentQuestion = 0
-  interval = setInterval(function () {
-    secondsLeft--;
-    countdown.textContent = secondsLeft
-  }, 1000);
-}"
+![timer](https://user-images.githubusercontent.com/53587397/71748430-23175780-2e38-11ea-90c7-fda542b7ba89.png)
+
 
 The timer is then called within the function that starts the quiz, so every time the quiz starts, the user's score and the countdown is reset. Pretty fun to mess around with!
