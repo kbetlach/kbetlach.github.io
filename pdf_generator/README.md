@@ -6,6 +6,8 @@ As part of our Node.js training, we were tasked with creating a program that wil
 
 The PDF is meant to display the user's name, current, company, location, and links to GitHub and a personal blog. The location is clickable, and will re-direct the user to the location within Google Maps. The GitHub and blog links are also live. Additionally, using an Axios call, the page should display their profile picture, and the amount of public repos, followers, following, and GitHub Stars they have.
 
+<img width="1013" alt="profile" src="https://user-images.githubusercontent.com/53587397/71793646-3f1b2480-3003-11ea-87ea-879ebb627315.png">
+
 ###Technologies
 
 The portfolio was created in VS Code using html, css, Bootstrap, Google Fonts, npm packages, and JavaScript.
@@ -32,10 +34,6 @@ This was an interesting assignment! Fun to get into node stuff and use the Termi
 
 My favorite part to code was probably the using template literals in the html. I found it to be quick and easy to grasp, and made using the API response really easy. Here's an example:
 
- <div class="row">
-        <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Followers: ${response.data.followers}</div>
-            <div class="col-4"></div>
-            <div class="col-4 card" style="background-color: ${color}; font-size: 24px; text-align: center; padding: 10px;">Following: ${response.data.following}</div>
-</div>
+<img width="1149" alt="code" src="https://user-images.githubusercontent.com/53587397/71793626-2ad72780-3003-11ea-967d-2845987972ef.png">
 
 Shoutout to TA Connor, who helped me in a big way in getting my html to convert into the PDF and display appropriately.
