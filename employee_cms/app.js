@@ -21,7 +21,7 @@ var connection = mysql.createConnection({
     user: "root",
 
     // Your password
-    password: "root",
+    password: "rootroot",
     database: "employee_db"
 });
 
@@ -79,7 +79,8 @@ function start() {
 
 //VIEW ALL EMPLOYEES
 function viewAll() {
-    connection.query("SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.department FROM ((employee INNER JOIN roles ON employee.role_id = roles.id) INNER JOIN department ON roles.department_id = department.id)", function (err, res) {
+    connection.query
+    ("SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.department FROM ((employee INNER JOIN roles ON employee.role_id = roles.id) INNER JOIN department ON roles.department_id = department.id)", function (err, res) {
         if (err) 
             throw err;
         

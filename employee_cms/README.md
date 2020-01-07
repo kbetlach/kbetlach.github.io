@@ -2,6 +2,8 @@
 
 ##Introduction
 
+![database](https://user-images.githubusercontent.com/53587397/71931126-b5826880-3162-11ea-829c-aaad6946d972.png)
+
 For our MySQL unit, we were asked to create an employee CMS that allows the user to view all employees in a company, displaying their name, role, department, salary, and manager. Functionality should also allow the user to add employees to the database, and update employee roles and managers. Viewing employees under different criteria was also required, for example, viewing all employees by role or department.
 
 Additionally, our schema was supposed to be made up of three separate tables containing specific information titled employee, role, and department. Creating the MySQL seed file was entirely up to us in an effort to populate the database.
@@ -28,14 +30,6 @@ I found this to be quite challenging, but really satisfying to work through. I g
 
 My favorite bit of code is the inner join that links all three tables in the view all employees feature.
 
-function viewAll() {
-    connection.query("SELECT employee.id, employee.first_name, employee.last_name, employee.manager_id, roles.title, roles.salary, department.department FROM ((employee INNER JOIN roles ON employee.role_id = roles.id) INNER JOIN department ON roles.department_id = department.id)", function (err, res) {
-        if (err) 
-            throw err;
-        
-        console.table(res);
-        start();
-    });
-}
+![code](https://user-images.githubusercontent.com/53587397/71931145-c03cfd80-3162-11ea-9177-873001b04a96.png)
 
-It's really wordy and crazy long, but it works!
+It's really wordy and crazy long, but it works! Clicking the image allows for closer inspection.
