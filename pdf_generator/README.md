@@ -1,6 +1,6 @@
-GitHub Profile PDF Generator
+# GitHub Profile PDF Generator
 
-##Introduction
+# Introduction
 
 As part of our Node.js training, we were tasked with creating a program that will prompt the user what their name, GitHub username, and favorite color are to immediately generate a PDF GitHub profile.
 
@@ -8,11 +8,11 @@ The PDF is meant to display the user's name, current, company, location, and lin
 
 <img width="1013" alt="profile" src="https://user-images.githubusercontent.com/53587397/71793646-3f1b2480-3003-11ea-87ea-879ebb627315.png">
 
-###Technologies
+# Technologies
 
 The portfolio was created in VS Code using html, css, Bootstrap, Google Fonts, npm packages, and JavaScript.
 
-####Launch
+# Launch
 
 For a demonstration, please see "demo.gif" in the repository. Otherwise, follow these steps:
 
@@ -28,7 +28,7 @@ This will start the program, and you will be prompted with three questions.
 
 Once complete, both an html and PDF file will generate in the folder the file is living in.
 
-#####Sources and Inspiration
+# Sources and Inspiration
 
 This was an interesting assignment! Fun to get into node stuff and use the Terminal more.
 

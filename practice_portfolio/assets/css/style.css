@@ -45,6 +45,14 @@ body {
     border-left: 1px solid #4aaaa5;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
 #header-about {
     float: right;
     border-left: 0 none;
@@ -65,14 +73,6 @@ body {
 
 a:default {
     color: #4aaaa5;
-}
-
-a:link {
-    text-decoration: none;
-}
-
-a:visited {
-    color: inherit;
 }
 
  h1 {
