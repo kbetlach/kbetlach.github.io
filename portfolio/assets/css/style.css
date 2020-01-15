@@ -71,14 +71,6 @@ header {
     color: #ffffff;
 }
 
-#header-contact {
-    border-left: 1px solid darkslategray;
-}
-
-#header-portfolio {
-    border-left: 1px solid darkslategray;
-}
-
 .navbar-brand {
     font-size: 30px;
     margin-left: 225px;
