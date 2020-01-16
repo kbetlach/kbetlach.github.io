@@ -21,6 +21,8 @@ body {
     height: 215px;
     float: left;
     margin-right: 20px;
+    border: 1px solid darkslategray;
+    border-radius: 25px;
 }
 
 #cover-bio {
@@ -42,6 +44,13 @@ h1 {
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid darkslategray;
+}
+
+h2 {
+    border-bottom: 2px solid darkslategray;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: darkslategray;
+    padding-bottom: 15px;
 }
 
 h3 {
@@ -81,13 +90,14 @@ header {
 
 .label1 {
     position: relative;
-    bottom: 50px;
+    bottom: 60px;
     background-color: darkslategray;
     color: #ffffff;
     text-align: center;
     padding: 10px;
     font-size: 18px;
     width: auto;
+    border-radius: 25px;
 }
 
 .label2 {
@@ -114,13 +124,7 @@ header {
     color: darkslategray;
     background-color: snow;
     padding: 28px;
-}
-
-h2 {
-    border-bottom: 2px solid darkslategray;
-    font-family: 'Nanum Gothic', sans-serif;
-    color: darkslategray;
-    padding-bottom: 15px;
+    border-radius: 25px;
 }
 
 .form {
@@ -154,18 +158,31 @@ h2 {
 
 #ffdb {
     height: 250px;
+    border: 1px solid darkslategray;
+    border-radius: 25px;
 }
 
 #weather {
     height: 250px;
+    border: 1px solid darkslategray;
+    border-radius: 25px;
 }
 
 #password {
     height: 250px;
+    border: 1px solid darkslategray;
+    border-radius: 25px;
 }
 
 #workday {
     height: 250px;
+    border: 1px solid darkslategray;
+    border-radius: 25px;
+}
+
+#msts {
+    border: 1px solid darkslategray;
+    border-radius: 25px;
 }
 
 @media (max-width: 1200px) {
