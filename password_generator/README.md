@@ -6,6 +6,8 @@ For this assignment, we were meant to create a password generator using JavaScri
 
 The purpose of the application is to provide the user with a secure, randomized password.
 
+<img width="1159" alt="password" src="https://user-images.githubusercontent.com/53587397/72644151-f71acc80-3935-11ea-9135-46e122f64537.png">
+
 # Technologies
 
 The generator was created in VS Code using html, css, Bootstrap and JavaScript. 
@@ -19,10 +21,6 @@ It can be found here: (https://kbetlach.github.io/password_generator/)
 Screenshot of finished application:
 
 (https://github.com/kbetlach/kbetlach.github.io/blob/master/homework03/assets/images/password_generator.png)
-
-# Status
-
-The program is complete. Extra alerts could be added to spice it up, but as it stands it is a functioning password generator that responds to the specifications input by the user.
 
 # Sources and Inspiration
 

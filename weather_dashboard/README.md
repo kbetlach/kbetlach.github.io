@@ -6,7 +6,7 @@ Homework06 asked us to create a weather dashboard. Users should be able to enter
 
 After a city is searched, the city is then stored in local storage and a button is created to show what the user has previously searched. Upon refresh, those buttons should be visible, and once clicked, the weather data re-generated.
 
-<img width="1268" alt="weather" src="https://user-images.githubusercontent.com/53587397/72470910-3ff04b00-37a7-11ea-8a0a-79aa8a87fee2.png">
+<img width="1291" alt="weather" src="https://user-images.githubusercontent.com/53587397/72644104-cfc3ff80-3935-11ea-8a99-82be152db488.png">
 
 # Technologies
 

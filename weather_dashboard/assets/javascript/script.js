@@ -44,7 +44,7 @@ function searchCityWeather() {
                 $(".forecast").empty();
 
                 for (var i = 0; i < 5; i++) {
-                    var newDiv = $("<div>").attr('id', i).addClass("bg-secondary p-1 m-1");
+                    var newDiv = $("<div>").attr('id', i).addClass("bg-primary p-1 m-1");
                     var newRow = $("<div>").addClass("next-line" + [i]);
                     var forecastTemp = $("<div>").addClass("text-white");
                     var forecastHumidity = $("<div>").addClass("text-white");
@@ -70,7 +70,7 @@ function searchCityWeather() {
 function addWeatherButtons() {
     var city = $("#city-search").val().trim();
     var list = $("<button>");
-    list.addClass("btn btn-secondary p-1 m-1 city-btn");
+    list.addClass("btn btn-primary p-1 m-1 city-btn");
     list.html(city);
     $("#city-buttons").append(list);
     savedCities.push(city);
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
     for (i = 0; i < savedCities.length; i++) {
         var savedButton = $("<button>");
-        savedButton.addClass("btn btn-secondary p-1 m-1 city-btn").html(savedCities[i]);
+        savedButton.addClass("btn btn-primary p-1 m-1 city-btn").html(savedCities[i]);
         $("#city-buttons").append(savedButton);
     }
 })
