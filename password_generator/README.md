@@ -18,10 +18,6 @@ Nothing too fancy! Simply open it up with your favorite web browser to view it! 
 
 It can be found here: (https://kbetlach.github.io/password_generator/)
 
-Screenshot of finished application:
-
-(https://github.com/kbetlach/kbetlach.github.io/blob/master/homework03/assets/images/password_generator.png)
-
 # Sources and Inspiration
 
 I found this assignment to be fairly difficult, but shoutouts to the TAs, especially Blake for pushing me through it. I was able to cobble together most of what I needed, and Blake helped push it over the edge into functioning properly.
