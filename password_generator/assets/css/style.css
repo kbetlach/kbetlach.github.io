@@ -2,6 +2,7 @@ body {
     font-family: 'Overlock', cursive;
     background: url("../images/lock.png"); 
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .jumbotron {
@@ -48,12 +49,10 @@ h1 {
     border-radius: 25px;
 }
 
+/*MEDIA QUERIES*/
 @media (max-width: 991px) {
     .container {
         width: 950px;
-    }
-    body {
-        background-size: cover;
     }
 }
 
@@ -61,35 +60,40 @@ h1 {
     .container {
         width: 700px;
     }
-    body {
-        background-size: cover;
-    }
 }
 
 @media (max-width:575px) {
-    body {
-        background-size: cover;
-    }
-
     .container {
         width: 555px;
     }
 }
 
 @media (max-width:555px) {
-    body {
-        background-size: cover;
-    }
     .container {
         width: 525px;
     }
 }
 
-@media (max-width:411px) {
-    body {
-        background-size: cover;
-    }
+@media (max-width:414px) {
     .container {
         width: 390px;
+    }
+}
+
+@media (max-width:375px) {
+    .container {
+        width: 355px;
+    }
+}
+
+@media (max-width:360px) {
+    .container {
+        width: 335px;
+    }
+}
+
+@media (max-width:320px) {
+    .container {
+        width: 300px;
     }
 }

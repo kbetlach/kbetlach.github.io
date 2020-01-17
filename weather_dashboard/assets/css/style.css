@@ -1,6 +1,7 @@
 body {
     background: url("../images/sunny.png");
     background-size: cover;
+    background-attachment: fixed;
     font-family: 'Sunshiney', cursive;
     font-size: 20px;
 }
