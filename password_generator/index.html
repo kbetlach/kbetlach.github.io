@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
 
@@ -16,17 +17,20 @@
   <div class="jumbotron">
     <div class="row">
       <div class="col-md-12">
-          <h2>Generate a Password</h2>
+          <h1>Generate a Password</h1>
           <textarea id="field" placeholder="Your password will generate here..."></textarea>
       </div>
     </div>
   
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4 text-center">
         <button id="generate">Generate Password</button>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-md-4"></div>
+      
+      <div class="col-md-4 text-center">
         <button onclick="copyPassword()" id="copy">Copy to Clipboard</button>
       </div>
      </div>
