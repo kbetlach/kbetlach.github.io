@@ -20,9 +20,9 @@ function searchCityWeather() {
         var weatherIconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
         $(".city").html("<h3>" + response.name + "<br/>" + moment().format('L' + "</h3>"));
-        $(".temperature").html("Temperature: " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
-        $(".humidity").html("Humidity: " + response.main.humidity + "%");
-        $(".wind").html("Wind Speed: " + response.wind.speed + " mph");
+        $(".temperature").html("<strong>Temperature:</strong> " + ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1) + " degrees Fahrenheit");
+        $(".humidity").html("<strong>Humidity:</strong> " + response.main.humidity + "%");
+        $(".wind").html("<strong>Wind Speed:</strong> " + response.wind.speed + " mph");
         $(".icon").attr('src', weatherIconURL).attr('alt', 'weather icon');
 
         var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&apikey=" + apiKey;
@@ -31,7 +31,7 @@ function searchCityWeather() {
             url: uvIndexURL,
             method: "GET"
         }).then(function (response) {
-            $(".uv").html("UV Index: " + response.value);
+            $(".uv").html("<strong>UV Index:</strong> " + response.value);
 
             var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&apikey=" + apiKey;
 
@@ -54,7 +54,7 @@ function searchCityWeather() {
                     newDiv.html(moment().add((i + 1), 'days').format('L')).addClass("text-white");
                     $(".forecast").append(newDiv);
                     $(newDiv).append(newRow);
-                    $(forecastTemp).html("Temp: " + ((response.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(1) + " deg F");
+                    $(forecastTemp).html("Temp: " + ((response.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(1) + "° F");
                     $(forecastHumidity).html("Humidity: " + response.list[i].main.humidity + "%");
                     $(".next-line" + i).append(iconDiv);
                     $("#" + i).append(forecastTemp);
