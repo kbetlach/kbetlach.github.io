@@ -38,3 +38,79 @@ h1 {
     font-size: 26px;
     font-weight: bold;
 }
+
+/*MEDIA QUERIES*/
+@media (max-width: 360px) {
+    .container {
+        width: 345px;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .time {
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 411px) {
+    .container {
+        width: 400px;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .time {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        width: 310px;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .time {
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        width: 350px;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .time {
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 414px) {
+    .container {
+        width: 400px;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .time {
+        margin-left: 30px;
+    }
+}
