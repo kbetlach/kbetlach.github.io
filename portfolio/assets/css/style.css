@@ -24,6 +24,16 @@ body {
     border-radius: 25px;
 }
 
+#mern {
+    width: 475px;
+    height: 250px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 1px solid;
+}
+
 #cover-bio, #cover-portfolio, #cover-contact, #cover-skills {
     border: 1px ridge #dddddd;
     padding: 10px;
@@ -135,7 +145,7 @@ header {
     color: darkslategray;
 }
 
-#ffdb, #weather, #password, #burger, #msts, #lotr {
+#book, #weather, #employee, #burger, #msts, #lotr {
     height: 250px;
     border: 1px solid darkslategray;
     border-radius: 25px;

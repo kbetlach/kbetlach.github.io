@@ -15,9 +15,7 @@ h1 {
 }
 
 .jumbotron {
-    background-color: skyblue;
-    border-radius: 25px;
-    border: 1px solid darkblue;
+    background-color: transparent;
 }
 
 .nav {
