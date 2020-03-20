@@ -24,16 +24,6 @@ body {
     border-radius: 25px;
 }
 
-#mern {
-    width: 475px;
-    height: 250px;
-    float: right;
-    margin-right: 100px;
-    margin-top: 20px;
-    border-radius: 25px;
-    border: 1px solid;
-}
-
 #cover-bio, #cover-portfolio, #cover-contact, #cover-skills {
     border: 1px ridge #dddddd;
     padding: 10px;
@@ -168,11 +158,6 @@ header {
         margin-left: 50px;
     }
 
-    #kyle {
-        padding: 10px 0px 10px 0px;
-        height: 225px;
-    }
-
     .label {
         font-size: 12px;
         bottom: 50px;
@@ -204,10 +189,6 @@ header {
         position: relative;
         left: 175px;
         font-size: 14px;
-    }
-
-    #kyle {
-        max-width: 300px;
     }
 
     .label {
@@ -295,6 +276,11 @@ header {
         width: 75px;
     }
 
+    #kyle {
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
     .label2 {
         width: 100px;
         left: 80px;
@@ -316,6 +302,11 @@ header {
         width: 75px;
     }
 
+    #kyle {
+        margin-left: 40px;
+        margin-bottom: 5px;
+    }
+
     .label2 {
         width: 100px;
         left: 80px;
@@ -334,7 +325,6 @@ header {
     }
 }
 
-/*MEDIA QUERIES*/
 @media (max-width: 375px) {
 
     .container {
@@ -345,6 +335,10 @@ header {
 
     .nav-item {
         width: 75px;
+    }
+
+    #kyle {
+        margin-left: 25px;
     }
 
     .label2 {
@@ -361,12 +355,16 @@ header {
 
     .container {
         width: 345px;
-        margin-left: 10px;
-        margin-top: 60px;
+        margin-left: 7px;
+        margin-top: 70px;
+    }
+
+    #kyle {
+        margin-bottom: 5px;
     }
 
     .nav-item {
-        width: 75px;
+        width: 70px;
     }
 
     .label2 {
