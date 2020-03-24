@@ -1,5 +1,6 @@
 var startButton = document.querySelector("#start");
-var startButtonDiv = document.querySelector("#startButton")
+var startButtonDiv = document.querySelector("#startButton");
+var homeButtonDiv = document.querySelector("#homeButton");
 var directions = document.querySelector(".directions");
 var countdown = document.querySelector(".time");
 var quizQuestions = document.querySelector("#quizQuestions");
@@ -9,10 +10,10 @@ var selectionB = document.querySelector("#B")
 var selectionC = document.querySelector("#C")
 var selectionD = document.querySelector("#D")
 var resultDiv = document.querySelector("#result")
-var buttonsEl = document.querySelector(".btn")
-var userScore = 0
-var currentQuestion = 0
-var secondsLeft = 75
+var buttonsEl = document.querySelector(".btn");
+var userScore = 0;
+var currentQuestion = 0;
+var secondsLeft = 75;
 
 startButton.addEventListener("click", startQuiz);
 
@@ -110,6 +111,11 @@ function increaseQuestion() {
     selectionD.style.display = "none";
     resultDiv.style.display = "none";
     countdown.style.display = "none";
+
+    homeButton = document.createElement('button');
+    homeButtonDiv.append(homeButton);
+    homeButton.innterHTML = "Home";
+    //homeButton.addEventListener("click", location.reload());
   }
   else {
     nextQuestion();
