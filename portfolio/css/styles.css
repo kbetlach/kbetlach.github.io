@@ -10120,3 +10120,11 @@ header.masthead h1 {
 hr {
   background-color: white;
 }
+
+#kyle {
+  width: 275px;
+  height: 250px;
+  float: left;
+  border-radius: 50%;
+  padding: 5px;
+}
