@@ -1,6 +1,8 @@
 # Random Password Generator
 
-# Introduction
+Deployed: (https://kbetlach.github.io/password_generator/)
+
+## Introduction
 
 For this assignment, we were meant to create a password generator using JavaScript. The generator will ask users how many characters between 8 - 128 they want in their password, and they can further specify what types of characters will be included (special, numeric, upper or lower case letters). 
 
@@ -8,17 +10,11 @@ The purpose of the application is to provide the user with a secure, randomized 
 
 <img width="1159" alt="password" src="https://user-images.githubusercontent.com/53587397/72644151-f71acc80-3935-11ea-9135-46e122f64537.png">
 
-# Technologies
+## Technologies
 
 The generator was created in VS Code using html, css, Bootstrap and JavaScript. 
 
-# Launch
-
-Nothing too fancy! Simply open it up with your favorite web browser to view it! The media queries written into the application ensure that it displays properly and functions on varying screen sizes.
-
-It can be found here: (https://kbetlach.github.io/password_generator/)
-
-# Sources and Inspiration
+## Sources and Inspiration
 
 I found this assignment to be fairly difficult, but shoutouts to the TAs, especially Blake for pushing me through it. I was able to cobble together most of what I needed, and Blake helped push it over the edge into functioning properly.
 
